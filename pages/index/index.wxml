@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="pyg_index">index
+<!--搜索框 开始-->
+<SearchInput></SearchInput>
+<!--搜索框 结束-->
+<!--<view class="iconfont icon-shoucang1"></view>-->
+
+</view>
+
