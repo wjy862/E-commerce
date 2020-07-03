@@ -1,2 +1,5 @@
 <!--components/SearchInput/SearchInput.wxml-->
-<text>components/SearchInput/SearchInput.wxml</text>
+<view class="search_input">
+<!--跳转非tabBar界面-->
+  <navigator url="/pages/search/index" open-type="navigate">search</navigator>
+</view>

@@ -1,0 +1,95 @@
+/**index.wxss**/
+view{
+  /*使用主题颜色*/
+  color:var(--themeColor);
+}
+
+/**轮播图**/
+/**
+.swiper {
+  height: 400rpx;
+  width: 100%;
+  }
+  .swiper image {
+  height: 100%;
+  width: 100%;
+  }
+**/
+swiper {
+  height: 421.5rpx;
+}
+swiper-item image {
+  width: 100%;
+  height: 100%;
+} 
+.swiper-container{
+position: relative;
+}
+.swiper-container .swiper{
+height: 300rpx;
+}
+.swiper-container .swiper .img{
+width: 100%;
+height: 100%;
+}
+
+.index_cate{
+display: flex;
+navigator{
+flex:1;
+padding:10rpx;
+image{
+width: 100%;
+    }
+  }
+}
+
+.fin_cate{
+ 
+  image{
+    float:left;
+    width:100rpx;
+  
+      }
+
+  }
+
+.index_floor{
+
+  .floor_group{
+    .floor_title{
+      image{
+        
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+  .floor_list{
+    navigator{
+      float:left;
+      width:33.33%;
+      /*后四个超链接*/ 
+      &:nth-last-child(-n+4){
+       
+      /*原图宽高232*386*/
+      /*原图宽高640*480*/
+      //232/386=33.33vw/height
+      //height:((480/640vw)*(640/480))/2
+      height:25vw;
+      }
+
+
+
+      image{
+        width:100%; 
+        height:100%;
+      }
+    }
+  }
+}
+
+
+
+
+

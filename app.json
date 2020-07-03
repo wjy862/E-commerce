@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/category/index",
     "pages/goods_liste/index",
@@ -13,39 +13,43 @@
     "pages/login/index",
     "pages/auth/index",
     "pages/pay/index"
-
+  
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ee4450",
     "navigationBarTitleText": "黑马优购",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999",
-    "selectedColor":"#ff2d4a",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "index",
-      "iconPath": "icons/home.png",
-      "selectedIconPath": "icons/home-o.png"
-    },{
-      "pagePath": "pages/category/index",
-      "text": "category",
-      "iconPath": "icons/category.png",
-      "selectedIconPath": "icons/category-o.png"
-    },
-    {
-      "pagePath": "pages/cart/index",
-      "text": "index",
-      "iconPath": "icons/cart.png",
-      "selectedIconPath": "icons/cart-o.png"
-    },{
-      "pagePath": "pages/user/index",
-      "text": "category",
-      "iconPath": "icons/My.png",
-      "selectedIconPath": "icons/My-o.png"
-    }]
+    "selectedColor": "#ff2d4a",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "index",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-o.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "category",
+        "iconPath": "icons/category.png",
+        "selectedIconPath": "icons/category-o.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "index",
+        "iconPath": "icons/cart.png",
+        "selectedIconPath": "icons/cart-o.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "category",
+        "iconPath": "icons/My.png",
+        "selectedIconPath": "icons/My-o.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

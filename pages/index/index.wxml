@@ -5,5 +5,58 @@
 <!--搜索框 结束-->
 <!--<view class="iconfont icon-shoucang1"></view>-->
 
+<!--轮播图简单-->
+<!--
+<swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+<block wx:for="{{movies}}" wx:for-index="index">
+<swiper-item>
+<image src="{{item.url}}" class="slide-image" mode="aspectFill"/>
+</swiper-item>
+</block>
+</swiper>-->
+
+<!--轮播图可触发事件-->
+<view>
+ <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!--导航开始-->
+<view class="index_cate">
+  <navigator wx:for="{{catesList}}" wx:key="name" bindtap="photoclick" >
+   <image  mode="widthFix" src="{{item.image_src}}" />
+  </navigator>
+</view>
+<!--导航结束-->
+
+<!--楼层开始-->
+ <view class="index_floor">
+   <view class="floor_group" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="floor_title">
+   <!--标题-->
+    <view class="floor_title">
+   <image  mode="widthFix" src="{{item1.floor_title.image_src}}" />
+    </view>
+   <!--内容-->
+    <view class="floor_list">
+      <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+        <image  mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}" />
+      </navigator>
+     </view>
+   </view>
+ </view>
+<!--楼层结束-->
+
+
+<!--测试导航开始-->
+<view class="fin_cate" >
+  <navigator wx:for="{{catesList}}" wx:key="name" wx:for-item="item1" wx:for-index="index1"  bindtap="photoclick" >
+   <image  mode="widthFix" src="{{item1.image_src}}" />
+  </navigator>
+</view>
+<!--导航结束-->
 </view>
 
