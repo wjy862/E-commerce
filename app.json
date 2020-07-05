@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/transport/transport",
+    "pages/addressMgt/addressMgt",
+    
     "pages/index/index",
     "pages/category/index",
     "pages/goods_liste/index",
@@ -26,7 +30,7 @@
     "selectedColor": "#ff2d4a",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "text": "index",
         "iconPath": "icons/home.png",
         "selectedIconPath": "icons/home-o.png"
@@ -51,6 +55,26 @@
       }
     ]
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  }
 }

@@ -1,0 +1,4 @@
+<!--pages/home/home.wxml-->
+<view class="home">
+  <van-button type="info" bindtap="toTransport">我要运转</van-button>
+</view>

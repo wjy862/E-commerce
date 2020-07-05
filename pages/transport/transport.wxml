@@ -1,0 +1,119 @@
+<!--我要运转-->
+<view class="transport">
+
+  <!-- 运转仓 -->
+  <view class="store-item">
+    <view class="label">运转仓</view>
+    <van-dropdown-menu
+      class="store"
+      active-color="#eb4450"
+    >
+      <van-dropdown-item 
+        data-name="store"
+        value="{{form.store}}" 
+        options="{{ storeList }}" 
+        bind:change="updateValue" 
+      />
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+
+  <!-- 物流单号 -->
+  <van-field
+    value="{{form.no}}"
+    data-name="no"
+    label="物流单号"
+    placeholder="请输入物流单号"
+    input-align="right"
+    border="{{true}}"
+    error-message="{{noErrorMsg}}"
+    error-message-align="right"
+    bind:input="updateValue"
+    bind:change="onCheckNo"
+  />
+
+  <!-- 物品 -->
+  <van-cell title="物品信息" center>
+    <view slot="right-icon">
+      <van-button icon="plus" color="#eb4450" size="mini" type="danger" bindtap="showGoods">添加</van-button>
+    </view>
+  </van-cell>
+  <van-panel 
+    wx:for="{{goodsList}}" 
+    wx:key="index" 
+    title="{{item.name}}" 
+    desc="分类：{{item.type}}，  单价：{{item.price}}，  数量：{{item.num}}" 
+    use-footer-slot
+  >
+    <view style="text-align: right" slot="footer">
+      <van-button size="mini" plain type="danger" data-index="{{index}}" bindtap="handleRemoveGoods">删除</van-button>
+    </view>
+  </van-panel>
+  <van-popup 
+    show="{{ goodsVisible }}" 
+    position="bottom"
+    custom-style="height: 90%"
+    bind:close="onClose"
+  >
+    <view class="goods-container">
+      <goods-form 
+        bindadd="handleAddGoods"  
+      />
+    </view>
+  </van-popup>
+
+  <!-- 运转方式 -->
+  <van-cell-group class="methods-title" border="{{false}}" title="运转方式">
+  <van-tabs active="{{ methods }}" bind:change="onChangeMethods">
+    <van-tab title="合箱运转" name="methods1">
+      <view class="m1">
+        这些都是说明说明说明说明说明说明
+      </view>
+    </van-tab>
+    <van-tab title="单票运转" name="methods2">
+      <!-- 地址 -->
+      <van-cell-group>
+        <van-cell title="收货地址" is-link link-type="navigateTo" url="../addressMgt/addressMgt"/>
+        <van-cell label="{{address}}" border="{{ false }}"/>
+      </van-cell-group>
+
+      <!-- 物流服务 -->
+      
+    </van-tab>
+  </van-tabs>
+  </van-cell-group>
+
+  <!-- 底部提交栏 -->
+  <van-submit-bar
+    custom-class="footer-bar"
+    button-text="提 交"
+    disabled="{{!isAgree}}"
+    bind:submit="onSubmit"
+  >
+    <view class="agree">
+      <van-checkbox value="{{ isAgree }}" bind:change="onChangeAgree">我已阅读并同意</van-checkbox>
+      <text class="xieyi" bindtap="showAgreement">《服务协议》</text>
+    </view>
+  </van-submit-bar>
+
+  <!-- 协议 -->
+  <van-dialog
+    use-slot
+    title="服务协议"
+    show="{{ agreementVisible }}"
+  >
+    <view class="agreement">
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+      这是协议内容这是协议内容这是协议内容这是协议内容文本内容这是协议内容这是协议内容这是协议内容这是协议内容文本内容
+    </view>
+  </van-dialog>
+  <van-toast id="van-toast" />
+
+</view>

@@ -1,0 +1,43 @@
+<!--pages/goodsForm/goodsForm.wxml-->
+<view>
+  <view class="title">物品信息</view>
+
+  <van-field
+    value="{{goods.name}}"
+    data-name="name"
+    label="物品名称"
+    placeholder="请输入物品名称"
+    input-align="right"
+    border="{{true}}"
+    bind:input="updateValue"
+  />
+
+  <van-cell title="物品数量" center>
+    <view slot="right-icon">
+      <van-stepper data-name="num" value="{{goods.num}}" integer bind:change="updateValue" />
+    </view>
+  </van-cell>
+
+  <van-field
+    value="{{ goods.price }}"
+    data-name="price"
+    type="number"
+    label="申报单价"
+    placeholder="请输入申报单价"
+    border="{{ true }}"
+    input-align="right"
+    bind:input="updateValue"
+  />
+
+  <van-field
+    value="{{goods.type}}"
+    label="物品类别"
+    input-align="right"
+    readonly="{{true}}"
+    border="{{ true }}"
+  />
+  <van-picker custom-class="select" active-class="selected-item" columns="{{ typeList }}" bind:change="onSelect" />
+  
+  
+  <van-button class="btn" type="primary" color="#eb4450" block bindtap="handleSave">确 定</van-button>
+</view>

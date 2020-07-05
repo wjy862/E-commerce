@@ -1,0 +1,14 @@
+/* pages/goodsForm/goodsForm.wxss */
+.title{
+  text-align: center;
+  padding: 12px 0;
+}
+.select{
+  background: rgb(241, 241, 241);
+}
+.selected-item{
+  color: var(--themeColor);
+}
+.btn{
+  margin: 16px 4px 4px 4px;
+}
