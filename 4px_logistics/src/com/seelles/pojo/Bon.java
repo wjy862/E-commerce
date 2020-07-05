@@ -1,11 +1,14 @@
 package com.seelles.pojo;
 
+import java.util.Set;
+
 public class Bon {
     private int bid;
     private int bamout;
     private String conditionutilisation;
     private String conditionroute;
     private String btype;
+    private Set<Possess> possesses;
 
     @Override
     public String toString() {
@@ -15,6 +18,7 @@ public class Bon {
                 ", conditionutilisation='" + conditionutilisation + '\'' +
                 ", conditionroute='" + conditionroute + '\'' +
                 ", btype='" + btype + '\'' +
+                ", possesses=" + possesses +
                 '}';
     }
 
@@ -58,12 +62,22 @@ public class Bon {
         this.btype = btype;
     }
 
-    public Bon(int bid, int bamout, String conditionutilisation, String conditionroute, String btype) {
+    public Set<Possess> getPossesses() {
+        return possesses;
+    }
+
+    public void setPossesses(Set<Possess> possesses) {
+        this.possesses = possesses;
+    }
+
+
+    public Bon(int bid, int bamout, String conditionutilisation, String conditionroute, String btype, Set<Possess> possesses) {
         this.bid = bid;
         this.bamout = bamout;
         this.conditionutilisation = conditionutilisation;
         this.conditionroute = conditionroute;
         this.btype = btype;
+        this.possesses = possesses;
     }
 
     public Bon() {

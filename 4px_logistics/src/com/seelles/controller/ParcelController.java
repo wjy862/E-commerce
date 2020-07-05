@@ -1,8 +1,7 @@
 package com.seelles.controller;
 
-
-import com.seelles.pojo.Command;
-import com.seelles.service.CommandService;
+import com.seelles.pojo.Parcel;
+import com.seelles.service.ParcelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,23 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping("/CommandController")
-public class CommandController {
+@RequestMapping("/ParcelController")
+public class ParcelController {
+
     @Autowired
-    CommandService commandService;
+    ParcelService parcelService;
 
     @RequestMapping("/edit")
-    public String edit(int cid, HttpServletRequest req) throws Exception {
+    public String edit(int pid, HttpServletRequest req) throws Exception {
         //System.out.println("1");
-        Command command=commandService.findOne(cid);
+        Parcel parcel=parcelService.findOne(pid);
         //System.out.println("5");
-        req.setAttribute("command",command);
-        System.out.println(command);
-        return "forward:/command-edit.jsp";
+        req.setAttribute("parcel",parcel);
+        System.out.println(parcel);
+        return "forward:/parcel-edit.jsp";
     }
     @RequestMapping("/add")
-    public String add(Command command, HttpServletRequest req){
-        int i =commandService.add(command);
+    public String add(Parcel parcel, HttpServletRequest req){
+        int i =parcelService.add(parcel);
 
         //返回数据
         if(i>0){
@@ -39,8 +39,8 @@ public class CommandController {
         }
     }
     @RequestMapping("/update")
-    public String update(Command command, HttpServletRequest req){
-        int i =commandService.update(command);
+    public String update(Parcel parcel, HttpServletRequest req){
+        int i =parcelService.update(parcel);
         //返回数据
         if(i>0){
             req.setAttribute("msg", "更新成功");
@@ -54,25 +54,25 @@ public class CommandController {
 
     @RequestMapping("/findAll")
     public String findAll(HttpServletRequest req){
-        List<Command> commands=commandService.findAll();
+        List<Parcel> parcels=parcelService.findAll();
 
         //返回数据
-        req.setAttribute("commands",commands);
-        return "forward:/command-list.jsp";
+        req.setAttribute("parcels",parcels);
+        return "forward:/parcel-list.jsp";
     }
     @RequestMapping("/findOne")
-    public String findOne(int cid, HttpServletRequest req) {
+    public String findOne(int pid, HttpServletRequest req) {
 
-        Command command=commandService.findOne(cid);
+        Parcel parcel=parcelService.findOne(pid);
 
-        req.setAttribute("command",command);
+        req.setAttribute("parcel",parcel);
 
-        return "forward:/command-list.jsp";
+        return "forward:/parcel-list.jsp";
     }
 
     @RequestMapping("/delete")
-    public String delete(int cid,HttpServletRequest req){
-        int i=commandService.delete(cid);
+    public String delete(int pid,HttpServletRequest req){
+        int i=parcelService.delete(pid);
 
         //返回数据
         if(i>0){
@@ -86,7 +86,8 @@ public class CommandController {
 
     @RequestMapping("/rowCount")
     public int rowCount() {
-        int rowCount=commandService.rowCount();
+        int rowCount=parcelService.rowCount();
         return rowCount;
     }
+
 }

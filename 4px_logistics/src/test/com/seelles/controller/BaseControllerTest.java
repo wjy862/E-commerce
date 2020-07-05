@@ -6,6 +6,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 // 告诉junit spring配置文件位置
-@ContextConfiguration({ "classpath:applicationContext-mybatis.xml", "classpath:springmvc.xml","classpath:applicationContext-service.xml" })
+@ContextConfiguration({ "classpath:applicationContext-mybatis.xml", "classpath:springmvc.xml","classpath:applicationContext-service.xml","classpath:applicationContext-config.xml", })
 public class BaseControllerTest {
 }
