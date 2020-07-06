@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seelles.mapper.AdressMapper">
+
+
+    <select id="selectOne" resultMap="rm1">
+        select a.*,u.uid,u.uname from adress a join user u on a.uid=u.uid where aid=#{0}
+    </select>
+    <select id="selectAll" resultMap="rm1">
+        select a.*,u.uid,u.uname from adress a join user u on a.uid=u.uid order by aid;
+    </select>
+    <resultMap  id="rm1" type="adress">
+        <id property="aid" column="aid"></id>
+        <result property="aadress" column="aadress"></result>
+        <result property="acp" column="acp"></result>
+        <result property="adepartement" column="adepartement"></result>
+        <result property="aname" column="aname"></result>
+        <result property="atelephone" column="atelephone"></result>
+        <association property="user" javaType="user">
+            <id property="uid" column="uid"></id>
+            <result property="uname" column="uname"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="rowCount" resultType="int">
+    	select count(*) from adress
+    </select>
+
+
+    <insert id="insert">
+        insert into adress values(DEFAULT,#{aname},#{atelephone},#{aadress},#{acp},#{adepartement},#{uid});
+    </insert>
+    <update id="update">
+        update adress set aname=#{aname},atelephone=#{atelephone},aadress=#{aadress},acp=#{acp},adepartement=#{adepartement},uid=#{uid} where aid=#{aid};
+    </update>
+    <delete id="delete">
+         DELETE FROM adress WHERE aid=#{0}
+    </delete>
+</mapper>

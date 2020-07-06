@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seelles.mapper.ParcelMapper">
+
+
+    <select id="selectOne" resultMap="rm1">
+        select p.*,c.uid,c.numcn from parcel p join command c on p.cid=c.cid where pid=#{0}
+    </select>
+    <select id="selectAll" resultMap="rm1">
+        select p.*,c.uid,c.numcn from parcel p join command c on p.cid=c.cid order by pid;
+    </select>
+    <resultMap  id="rm1" type="parcel">
+        <id property="pid" column="pid"></id>
+        <result property="pname" column="pname"></result>
+        <result property="prix" column="prix"></result>
+        <result property="quantity" column="quantity"></result>
+        <result property="type" column="type"></result>
+        <association property="command" javaType="command">
+            <id property="cid" column="cid"></id>
+            <result property="numcn" column="numcn"></result>
+            <result property="uid" column="uid"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="rowCount" resultType="int">
+    	select count(*) from parcel
+    </select>
+
+    <!--insert into parcel values(DEFAULT,#{numcn},#{time},#{weighttotal},#{weightpervolume},#{volume},#{weightreal},
+          #{amountlivraison},#{declaredprice},#{description},#{statuspayment},#{depotname},
+          #{logisticsnum},#{typetransport},#{service},#{insurance},#{weightreal},#{uid})-->
+    <insert id="insert">
+        insert into parcel
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="pname != null" >pname,</if>
+            <if test="prix != null" >prix,</if>
+            <if test="quantity != null" >quantity,</if>
+            <if test="type != null" >type,</if>
+            <if test="cid != null" >cid,</if>
+            pid
+        </trim>
+        values
+        <trim prefix="  ( " suffix=" ) " suffixOverrides="," >
+            <if test="pname != null" >#{pname,jdbcType=INTEGER},</if>
+            <if test="prix!= null" >#{prix,jdbcType=DECIMAL},</if>
+            <if test="quantity != null" >#{quantity,jdbcType=INTEGER},</if>
+            <if test="type!= null" >#{type,jdbcType=VARCHAR},</if>
+            <if test="cid!= null" >#{cid,jdbcType=INTEGER},</if>
+            DEFAULT
+        </trim>
+    </insert>
+
+    <update id="update">
+        <!--update parcel set numcn=#{numcn},time=#{time},weighttotal=#{weighttotal},weightpervolume=#{weightpervolume},weightreal=#{weightreal},amountlivraison=#{amountlivraison}
+        ,declaredprice=#{declaredprice},description=#{description},statuspayment=#{statuspayment},depotname=#{depotname},logisticsnum=#{logisticsnum},typetransport=#{typetransport},
+        service=#{service},insurance=#{insurance},weightreal=#{weightreal},uid=#{uid} where cid=#{cid}-->
+
+        update parcel
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pid != null">pid=#{pid},</if>
+            <if test="pname != null">pname=#{pname},</if>
+            <if test="prix!= null">prix=#{prix},</if>
+            <if test="quantity!= null">quantity=#{quantity},</if>
+            <if test="type!= null">type=#{type},</if>
+            <if test="cid != null">cid =#{cid},</if>
+        </trim>
+        where pid=#{pid}
+
+    </update>
+    <delete id="delete">
+         DELETE FROM parcel WHERE pid=#{0}
+    </delete>
+</mapper>

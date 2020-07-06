@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seelles.mapper.CommandMapper">
+
+
+    <select id="selectOne" resultMap="rm1">
+        select c.*,u.uid,u.uname from command c join user u on c.uid=u.uid where cid=#{0}
+    </select>
+    <select id="selectAll" resultMap="rm1">
+        select c.*,u.uid,u.uname from command c join user u on c.uid=u.uid order by cid;
+    </select>
+    <resultMap  id="rm1" type="command">
+        <id property="cid" column="cid"></id>
+        <result property="numcn" column="numcn"></result>
+        <result property="time" column="time"></result>
+        <result property="weighttotal" column="weighttotal"></result>
+        <result property="weightpervolume" column="weightpervolume"></result>
+        <result property="weightreal" column="weightreal"></result>
+        <result property="amountlivraison" column="amountlivraison"></result>
+        <result property="declaredprice" column="declaredprice"></result>
+        <result property="description" column="description"></result>
+        <result property="statuspayment" column="statuspayment"></result>
+        <result property="depotname" column="depotname"></result>
+        <result property="logisticsnum" column="logisticsnum"></result>
+        <result property="typetransport" column="typetransport"></result>
+        <result property="service" column="service"></result>
+        <result property="insurance" column="insurance"></result>
+        <result property="weightreal" column="weightreal"></result>
+        <association property="user" javaType="user">
+            <id property="uid" column="uid"></id>
+            <result property="uname" column="uname"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="rowCount" resultType="int">
+    	select count(*) from command
+    </select>
+
+    <!--insert into command values(DEFAULT,#{numcn},#{time},#{weighttotal},#{weightpervolume},#{volume},#{weightreal},
+          #{amountlivraison},#{declaredprice},#{description},#{statuspayment},#{depotname},
+          #{logisticsnum},#{typetransport},#{service},#{insurance},#{weightreal},#{uid})-->
+    <insert id="insert">
+        insert into command
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="numcn != null" >numcn,</if>
+        <if test="uid != null" >uid,</if>
+        <if test="weighttotal != null" >weighttotal,</if>
+        <if test="weightpervolume != null" >weightpervolume,</if>
+        <if test="volume!= null" >volume,</if>
+        <if test="weightreal != null" >weightreal,</if>
+        <if test="amountlivraison != null" >amountlivraison,</if>
+        <if test="declaredprice != null" >declaredprice,</if>
+        <if test="logisticsnum!= null" >logisticsnum,</if>
+        <if test="description != null" >description,</if>
+        <if test="statuspayment != null" >statuspayment,</if>
+        <if test="depotname != null" > depotname,</if>
+        <if test="typetransport != null" >typetransport,</if>
+        <if test="service != null" >service,</if>
+        <if test="insurance != null" >insurance,</if>
+        <if test="time != null" >time,</if>
+        cid
+        </trim>
+        values
+        <trim prefix="  ( " suffix=" ) " suffixOverrides="," >
+        <if test="numcn != null" >#{numcn,jdbcType=INTEGER},</if>
+        <if test="uid != null" >#{uid,jdbcType=INTEGER},</if>
+        <if test="weighttotal != null" >#{weighttotal,jdbcType=DECIMAL},</if>
+        <if test="weightpervolume!= null" >#{weightpervolume,jdbcType=DECIMAL},</if>
+        <if test="volume!= null" >#{volume,jdbcType=DECIMAL},</if>
+        <if test="weightreal!= null" >#{weightreal,jdbcType=DECIMAL},</if>
+        <if test="amountlivraison!= null" >#{amountlivraison,jdbcType=DECIMAL},</if>
+        <if test="declaredprice!= null" >#{declaredprice,jdbcType=DECIMAL},</if>
+        <if test="logisticsnum!= null" >#{logisticsnum,jdbcType=INTEGER},</if>
+        <if test="description != null" >#{description,jdbcType=VARCHAR},</if>
+        <if test="statuspayment != null" >#{statuspayment,jdbcType=VARCHAR},</if>
+        <if test="depotname!= null" >#{depotname,jdbcType=VARCHAR},</if>
+        <if test="typetransport!= null" >#{typetransport,jdbcType=VARCHAR},</if>
+        <if test="service != null" >#{service,jdbcType=VARCHAR},</if>
+        <if test="insurance!= null" >#{insurance,jdbcType=VARCHAR},</if>
+        <if test="time != null" >#{time,jdbcType=VARCHAR},</if>
+        DEFAULT
+        </trim>
+    </insert>
+
+    <update id="update">
+        <!--update command set numcn=#{numcn},time=#{time},weighttotal=#{weighttotal},weightpervolume=#{weightpervolume},weightreal=#{weightreal},amountlivraison=#{amountlivraison}
+        ,declaredprice=#{declaredprice},description=#{description},statuspayment=#{statuspayment},depotname=#{depotname},logisticsnum=#{logisticsnum},typetransport=#{typetransport},
+        service=#{service},insurance=#{insurance},weightreal=#{weightreal},uid=#{uid} where cid=#{cid}-->
+
+            update command
+            <trim prefix="set" suffixOverrides=",">
+                <if test="cid != null">cid=#{cid},</if>
+                <if test="numcn != null">numcn=#{numcn},</if>
+                <if test="time != null">time=#{time},</if>
+                <if test="weighttotal != null">weighttotal=#{weighttotal},</if>
+                <if test="weightpervolume!= null">weightpervolume=#{weightpervolume},</if>
+                <if test="weightreal!= null">weightreal=#{weightreal},</if>
+                <if test="amountlivraison!= null">amountlivraison=#{amountlivraison},</if>
+                <if test="declaredprice!= null">declaredprice=#{declaredprice},</if>
+                <if test="description!= null">description=#{description},</if>
+                <if test="statuspayment!= null">statuspayment=#{statuspayment},</if>
+                <if test="depotname!= null">depotname=#{depotname},</if>
+                <if test="logisticsnum!= null">logisticsnum=#{logisticsnum},</if>
+                <if test="typetransport!= null">typetransport=#{typetransport},</if>
+                <if test="service!= null">service=#{service},</if>
+                <if test="insurance!= null">insurance=#{insurance},</if>
+                <if test="weightreal!= null">weightreal=#{weightreal},</if>
+                <if test="uid!= null">uid=#{uid}</if>
+            </trim>
+            where cid=#{cid}
+
+    </update>
+    <delete id="delete">
+         DELETE FROM command WHERE cid=#{0}
+    </delete>
+</mapper>

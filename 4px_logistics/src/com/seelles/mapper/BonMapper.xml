@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seelles.mapper.BonMapper">
+
+
+    <select id="selectOne" resultMap="rm1">
+        select * from bon b join possess p on b.bid=p.bid join user u on p.uid=u.uid where b.bid=#{0}
+    </select>
+    <select id="selectAll" resultMap="rm1">
+        select * from bon b join possess p on b.bid=p.bid join user u on p.uid=u.uid order by bid;
+    </select>
+    <resultMap  id="rm1" type="Bon">
+        <id property="bid" column="bid"></id>
+        <result property="bamout" column="bamout"></result>
+        <result property="conditionutilisation" column="conditionutilisation"></result>
+        <result property="conditionroute" column="conditionroute"></result>
+        <result property="btype" column="btype"></result>
+        <collection property="possesses" ofType="possess" >
+            <result column="blimitedate" property="blimitedate"></result>
+            <result column="bquantite" property="bquantite"></result>
+            <result column="bstatus" property="bstatus"></result>
+            <result column="bdatefin" property="bdatefin"></result>
+            <association property="user" javaType="user">
+                <id property="uid" column="uid"></id>
+                <result property="uname" column="uname"></result>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <select id="rowCount" resultType="int">
+    	select count(*) from bon
+    </select>
+
+    <!--insert into bon values(DEFAULT,#{numcn},#{time},#{weighttotal},#{weightpervolume},#{volume},#{weightreal},
+          #{amountlivraison},#{declaredprice},#{description},#{statuspayment},#{depotname},
+          #{logisticsnum},#{typetransport},#{service},#{insurance},#{weightreal},#{uid})-->
+    <insert id="insert">
+        insert into bon
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="bamout != null" >bamout,</if>
+            <if test="conditionutilisation != null" >conditionutilisation,</if>
+            <if test="conditionroute != null" >conditionroute,</if>
+            <if test="btype != null" >btype,</if>
+            bid
+        </trim>
+        values
+        <trim prefix="  ( " suffix=" ) " suffixOverrides="," >
+            <if test="bamout != null" >#{bamout,jdbcType=INTEGER},</if>
+            <if test="conditionutilisation!= null" >#{conditionutilisation,jdbcType=VARCHAR},</if>
+            <if test="conditionroute  != null" >#{conditionroute ,jdbcType=VARCHAR},</if>
+            <if test="btype!= null" >#{btype,jdbcType=VARCHAR},</if>
+            DEFAULT
+        </trim>
+    </insert>
+
+    <update id="update">
+
+
+        update bon
+        <trim prefix="set" suffixOverrides=",">
+            <if test="bamout != null">bamout=#{bamout},</if>
+            <if test="conditionutilisation != null">conditionutilisation=#{conditionutilisation},</if>
+            <if test="conditionroute!= null">conditionroute=#{conditionroute},</if>
+            <if test="btype!= null">btype=#{btype},</if>
+        </trim>
+        where bid=#{bid}
+
+    </update>
+    <delete id="delete">
+         DELETE FROM bon WHERE bid=#{0}
+    </delete>
+</mapper>
