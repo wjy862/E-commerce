@@ -1,0 +1,110 @@
+<!-- 领券中心 -->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab"> 
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        
+          <view wx:if="{{sysCoupons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>
+            <view >（一）快递禁运品：
+1、难以估算价值的有价证券及易丢失的贵重物品，如：提货单、核销单、护照、配额证、许可证、执照、私人证件、汇票、发票、本国或外国货币（现金）、金银饰物、人造首饰、手机。
+2、易燃易爆、腐蚀性、毒性、强酸碱性和放射性的各种危险品，如：火柴、雷管、火药、爆竹、汽油、柴油、煤油、酒精（液体和固体）、硫酸、盐酸、硝酸、有机溶剂、农药及其它列入化学工业出版社出版的“化学危险品实用手册”中的化工产品。
+3、各类烈性毒药、麻醉药物和精神物品，如：砒霜、鸦片、吗啡、可卡因、海洛英、大麻等。
+4、国家法令禁止流通或寄运的物品，如：文物、武器、弹药、仿真武器等。
+5、含有反动、淫秽或有伤风化内容的报刊书籍、图片、宣传品、音像制品，激光视盘（VCD、DVD、LD）、计算机磁盘及光盘等。
+6、妨碍公共卫生的，如尸骨（包括已焚的尸骨）、未经硝制的兽皮、未经药制的兽骨等。
+7、动物、植物以及它们的标本。
+8、难以辨认成分的白色粉末。
+9、私人信函等。
+
+ </view>
+          </view>
+          <view class="weui-panel" wx:for="{{sysCoupons}}" wx:key="*key" wx:if="{{!item.pwd}}">
+            <view class="weui-panel__hd">{{item.name}}</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">
+                  <text class='price' wx:if="{{item.moneyMin == item.moneyMax}}">￥ {{item.moneyMax}}</text>
+                  <text class='price' wx:else>￥ {{item.moneyMin}} - {{item.moneyMax}}</text>
+                </view>
+                <view class="weui-media-box__desc">满 {{item.moneyHreshold}} 元使用</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">
+                    <view wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} 前有效 </view>
+                    <view wx:if="{{item.dateEndType == 1}}"> 领取 {{item.dateEndDays}} 天内有效 </view>
+                  </view>
+                  <view class="weui-media-box__info__meta" style='float:right;'>
+                    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="getCounpon" data-id="{{item.id}}">立即领取</button>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view wx:if="{{myCoupons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无可用优惠券</view>
+          </view>
+          <view class="weui-panel" wx:for="{{myCoupons}}" wx:key="*key" wx:if="{{!item.pwd}}">
+            <view class="weui-panel__hd">{{item.name}}</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">
+                  <text class='price'>￥ {{item.money}}</text>
+                </view>
+                <view class="weui-media-box__desc">满 {{item.moneyHreshold}} 元使用</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">
+                    <view> {{item.dateEnd}} 到期 </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <view wx:if="{{invalidCoupons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">（二）航空禁运品：
+1、威胁航空飞行安全的物品，指在航空运输中，可能明显地危害人身健康、安全或对财产造成损害的物品或物质。
+主要有以下几类：
+     A、爆炸品：如烟花爆竹、起爆引信等；
+     B、气体：如压缩气体、干冰、灭火器、蓄气筒(无排放装置，不能再充气的)、救生器(可自动膨胀的)等；
+     C、易燃液体：如油漆、汽油、酒精类、机油、樟脑油、发动机起动液、松节油、天拿水、胶水、香水等；
+     D、易燃固体：自燃物质，遇水释放易燃气体的物质，如活性碳、钛粉、椰肉干、蓖麻制品、橡胶碎屑、安全火柴(盒擦的或片擦的)、干燥的白磷、干燥的黄磷、镁粉等；
+     E、氧化剂和有机过氧化物：如高锰酸钾；
+     F、毒性和传染性物品：如农药、锂电池、催泪弹等；
+     G、放射性物质；
+     H、腐蚀品：如蓄电池、碱性的电池液。
+     I、未加消磁防护包装的磁铁、磁钢等含强磁的制品。
+2、任何药品。
+3、其它航空禁运品，如：粉末状物品 (不论何种颜色) 、液体（不论使用何种包装）、外包装有危险标志的货品、没有国家音像出版社证明的音像制品（含CD、VCD）、刀具、榴莲、带气火机、涉及“武器”和“枪支”概念的任何货品（含玩具）等。                        </view>
+          </view>
+          <view class="weui-panel" wx:for="{{invalidCoupons}}" wx:key="*key" wx:if="{{!item.pwd}}">
+            <view class="weui-panel__hd">{{item.name}}</view>
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">
+                  <text class='price'>￥ {{item.money}}</text>
+                </view>
+                <view class="weui-media-box__desc">满 {{item.moneyHreshold}} 元使用</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">
+                    <view> {{item.statusStr}} </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

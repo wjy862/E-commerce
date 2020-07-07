@@ -1,14 +1,21 @@
-// pages/order/index.js
-const WXAPI = require('../../wxapi/main')
+const WXAPI = require('../../../wxapi/main')
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
   /**
    * 页面的初始数据
-   */ 
+   */
   data: {
-    tabs: ["待认领", "待支付", "待合箱","待签收","全部"],
+    tabs: ["中国出口禁运品", "欧盟进口禁运品", "航空禁运品"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
+
+    couponInput: '', // 输入的优惠券码
+    sysCoupons: [], //可领取的优惠券列表
+    myCoupons: [], //已领取的可用优惠券列表
+    invalidCoupons: [] //已失效的优惠券
   },
 
   /**
@@ -69,18 +76,82 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+  getCounponByPwd(e){ // 通过优惠码领取优惠券
+    WXAPI.addTempleMsgFormid({
+      token: wx.getStorageSync('token'),
+      type: 'form',
+      formId: e.detail.formId
+    })
+    const _this = this;
+    const pwd = e.detail.value.pwd;
+    if(!pwd){
+      wx.showToast({
+        title: '请输入优惠码',
+        icon: 'none'
+      })
+      return
+    }
+    WXAPI.fetchCoupons({
+      pwd: pwd,
+      token: wx.getStorageSync('token')
+    }).then(function (res) {
+      if (res.code == 20001 || res.code == 20002) {
+        wx.showToast({
+          title: '您来晚了',
+          icon: 'none'
+        })
+        return;
+      }
+      if (res.code == 20003) {
+        wx.showToast({
+          title: '你领过了，别贪心哦~',
+          icon: 'none'
+        })
+        return;
+      }
+      if (res.code == 30001) {
+        wx.showToast({
+          title: '您的积分不足',
+          icon: 'none'
+        })
+        return;
+      }
+      if (res.code == 20004) {
+        wx.showToast({
+          title: '已过期~',
+          icon: 'none'
+        })
+        return;
+      }
+      if (res.code == 700) {
+        wx.showToast({
+          title: '优惠码不存在',
+          icon: 'none'
+        })
+        return;
+      }
+      if (res.code == 0) {
+        wx.showModal({
+          title: '成功',
+          content: '您已成功领取优惠券，赶快去下单使用吧！',
+          showCancel: false
+        })
+        _this.setData({
+          couponInput: ''
+        })
+      } else {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
+      }
+    })
   },
   sysCoupons: function () { // 读取可领取券列表
     var _this = this;
@@ -177,5 +248,5 @@ Page({
         })
       }
     })
-  }
+  },
 })

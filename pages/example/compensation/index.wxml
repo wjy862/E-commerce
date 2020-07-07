@@ -1,0 +1,8 @@
+<!--pages/example/compensation/index.wxml-->
+
+
+
+      <image wx:if="{{compensationimg}}" src="{{compensationimg}}"
+       mode="widthFix" 
+       style="width:100%;background-color:black;" ></image>
+
