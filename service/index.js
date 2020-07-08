@@ -1,39 +1,18 @@
-var app = getApp();
-var config = require("../../config.js");
-// pages/addressMgt/addressMgt.js
+// service/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    courselist: [{
-      imgs: [
-          "../../image/Android.jpg",
-          "../../image/Java.jpg"
-      ]
-  }],
-  color: "#7fabfd",
-  newsList: [],
-  HomeIndex: 0
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    //console.log(config.courses);
-    that.setData({
-        courses: config.courses
-    });
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-        //更新数据
-        that.setData({
-            userInfo: userInfo
-        })
-    })
+
   },
 
   /**

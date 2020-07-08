@@ -1,0 +1,13 @@
+<!--pages/service/index.wxml-->
+<view style="width:100%;position:absolute">
+      <view wx:for="{{compensationimg}}" wx:key="unique">
+            <image src="{{item}}"
+            mode="widthFix" 
+            style="width:100%;background-color:black;"></image>
+      </view>
+            <van-image
+            round
+            width="10rem"
+            height="10rem"
+            src="/image/shareround.jpg"/>
+</view>

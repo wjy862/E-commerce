@@ -27,18 +27,18 @@ Page({
       {
         icon: '../../image/qiandao.png',
         text: '推广返利',
-        url:"../example/sign/index"
+        url:"../example/rebate/index"
       },
       {
         icon: '../../image/qiandao.png',
         text: '收货地址管理',
-        url:"../example/sign/index"
+        url:"../addressMgt/addressMgt"
       },
 
       {
         icon: '../../image/qiandao.png',
         text: '我的中转仓库地址',
-        url:"../example/sign/index"
+        url:"../example/contact/index"
       } 
     ], 
     services:[
@@ -56,18 +56,13 @@ Page({
         icon: '../../image/yijan.png',
         text: '意见反馈',
         url:'../example/fdback/fdback'
-      },
-      {
-        icon:'../../image/kefu.png',
-        text: '联系我们',
-        url:"../example/contact/index"
       }
     ],
     logout:[
       {
         icon:'../../image/kefu.png',
         text: '退出',
-        url:"../example/contact/index"
+        url:"../index/index"
       }
     ]
   },
@@ -80,7 +75,7 @@ switchtopage: function (event) {
 
   gotopage: function (event) {
     wx.navigateTo({
-      url: event.currentTarget.dataset.hi
+    url: event.currentTarget.dataset.hi
     })
   },
   goAsset:function(){

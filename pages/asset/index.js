@@ -1,39 +1,24 @@
-var app = getApp();
-var config = require("../../config.js");
-// pages/addressMgt/addressMgt.js
+const app = getApp()
+const WXAPI = require('../../wxapi/main')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    courselist: [{
-      imgs: [
-          "../../image/Android.jpg",
-          "../../image/Java.jpg"
-      ]
-  }],
-  color: "#7fabfd",
-  newsList: [],
-  HomeIndex: 0
+    balance: 0.00,
+    freeze: 0,
+    score: 0,
+    score_sign_continuous: 0,
+    cashlogs: undefined
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    //console.log(config.courses);
-    that.setData({
-        courses: config.courses
-    });
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-        //更新数据
-        that.setData({
-            userInfo: userInfo
-        })
-    })
+
   },
 
   /**
@@ -47,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -83,5 +68,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  recharge: function (e) {
+    WXAPI.addTempleMsgFormid({
+      token: wx.getStorageSync('token'),
+      type: 'form',
+      formId: e.detail.formId
+    })
+    wx.navigateTo({
+      url: "/pages/recharge/index"
+    })
+  },
+  withdraw: function (e) {
+    WXAPI.addTempleMsgFormid({
+      token: wx.getStorageSync('token'),
+      type: 'form',
+      formId: e.detail.formId
+    })
+    wx.navigateTo({
+      url: "/pages/withdraw/index"
+    })
   }
 })

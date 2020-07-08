@@ -33,6 +33,18 @@
     color: #999;
     background: #fff
 }
+.mcinfoW {
+    font-size: 30rpx;
+    min-height: 100rpx;
+    line-height: 100rpx;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    width: 94%;
+    word-break: break-all;
+    margin: auto;
+    color: #999;
+    background: #fff
+}
 
 .mctlt {
     width: 28%;
@@ -43,6 +55,13 @@
 }
 
 .mcval {
+    width: 70%;
+    vertical-align: middle;
+    font-size: 30rpx;
+    float: left;
+}
+
+.mcvalW {
     width: 70%;
     vertical-align: middle;
     font-size: 30rpx;

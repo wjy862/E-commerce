@@ -1,0 +1,7 @@
+<!--pages/storage/index.wxml-->
+<van-cell
+  is-link
+  title="中国大陆仓"
+  link-type="navigateTo"
+  url="/pages/example/contact/index"
+/>

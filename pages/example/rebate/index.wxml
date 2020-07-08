@@ -1,0 +1,31 @@
+<!--pages/example/rebate/index.wxml-->
+ <view class="index_cate">
+  <navigator>
+       <image wx:if="{{rebateimg}}" src="{{rebateimg}}"
+       mode="widthFix" 
+       style="width:100%;background-color:black;" ></image>
+  </navigator>
+</view>
+<van-divider />
+<text>\n</text>
+
+
+<view class="weui-navbar" style="border: 100rpx" >
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+<van-tabs active="a">
+  <van-tab title="标签 1" name="a">内容 1</van-tab>
+  <van-tab title="标签 2" name="b">内容 2</van-tab>
+  <van-tab title="标签 3" name="c">内容 3</van-tab>
+</van-tabs>
+
+
+<view class='add_btn'>
+       <van-button class='btn' type="primary" size="large" color="#7232dd">去推广</van-button>
+</view>

@@ -16,7 +16,11 @@
     "pages/example/ban/index",
     "pages/example/coupons/index",
     "pages/example/contact/index",
-    "pages/example/compensation/index"
+    "pages/example/compensation/index",
+    "pages/example/rebate/index",
+    "pages/service/index",
+    "service/index",
+    "pages/storage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
