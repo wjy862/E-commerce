@@ -30,8 +30,11 @@
                       </view>
                    </navigator>
       
-       </view>
-         
+                  
+
+
+                  </view>
+                    
             <view class="line"></view>
         </view>
     </view>

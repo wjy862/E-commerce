@@ -8,8 +8,32 @@ Page({
    * 页面的初始数据
    */ 
   data: {
-    tabs: ["待认领", "待支付", "待合箱","待签收","全部"],
-  },
+    tabs: [
+      {id:0,value:"待认领",isActive:true}, 
+      {id:1,value:"待支付",isActive:false}, 
+      {id:2,value:"待合箱",isActive:false},
+      {id:3,value:"待签收",isActive:false},
+      {id:4,value:"全部",isActive:false}],
+      steps: [
+        {
+          text: '待入库',
+          desc: '进行中',
+        },
+        {
+          text: '待出库',
+          desc: '等待中',
+        },
+        {
+          text: '已出库',
+          desc: '等待中',
+        },
+        {
+          text: '已签收',
+          desc: '等待中',
+        },
+      ],
+   
+    },
 
   /**
    * 生命周期函数--监听页面加载
@@ -177,5 +201,20 @@ Page({
         })
       }
     })
-  }
+  },
+//标题的点击事件 从子组件传递过来
+handleTabsItemChange(e){
+//获得被点击的标题索引
+const {index}=e.detail;
+//修改源数组
+let {tabs}=this.data;
+tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false)
+//赋值到data中
+this.setData({
+  tabs
+})
+
+}
+
+
 })

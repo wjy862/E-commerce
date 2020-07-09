@@ -74,11 +74,13 @@
       <!-- 地址 -->
       <van-cell-group>
         <van-cell title="收货地址" is-link link-type="navigateTo" url="../addressMgt/addressMgt"/>
-        <van-cell label="{{address}}" border="{{ false }}"/>
+        
+        <van-cell label="{{address}}" border="{{false}}"/>
       </van-cell-group>
 
       <!-- 物流服务 -->
-      
+     
+
     </van-tab>
   </van-tabs>
   </van-cell-group>

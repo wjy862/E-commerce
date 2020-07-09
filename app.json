@@ -10,7 +10,6 @@
     "pages/order/index",
     "pages/search/index",
     "pages/feedback/index",
-    "pages/login/index",
     "pages/pay/index",
     "pages/mine/mine",
     "pages/example/ban/index",
@@ -78,6 +77,8 @@
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
     "van-toast": "@vant/weapp/toast/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-steps": "@vant/weapp/steps/index"
+
   }
 }
