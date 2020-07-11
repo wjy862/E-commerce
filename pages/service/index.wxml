@@ -1,0 +1,9 @@
+<!--pages/service/index.wxml-->
+<view style="width:100%;position:absolute">
+      <view wx:for="{{servicepriceimg}}" wx:key="unique">
+            <image src="{{item}}"
+            mode="widthFix" 
+            style="width:100%;background-color:black;"></image>
+      </view>
+         
+</view>

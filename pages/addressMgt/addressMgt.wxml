@@ -1,2 +1,44 @@
 <!--pages/addressMgt/addressMgt.wxml-->
-<text>pages/addressMgt/addressMgt.wxml</text>
+<view class="container">
+    <view class="page">
+   
+        <view wx:for="{{adresses}}" wx:key="aid"> 
+            
+          
+                <view class="rt">
+                    <view class="price">{{item.aname}}</view>
+                    <view class="name">
+                        联系电话: 
+                        <text class="money">{{item.atelephone}}</text>  
+                    </view>
+                    <view class="name">
+                        街道-门牌号等详细信息:
+                        <text class="money">{{item.aadress}}</text>
+                    </view>
+              
+
+                     <view class="name">
+                    <navigator url="/pages/adressUpdate/index?aid={{item.aid}}">
+                      <view style="border:1rpx solid {{color}};color:{{color}};" class="baoming">
+                        编辑
+                      </view>
+                     </navigator>
+                     </view>
+
+                     <view class="name"  >
+                      <view style="border:1rpx solid {{color}};color:{{color}};" class="baoming">
+                      
+                           <view  data-index="{{item.aid}}" bindtap="onDelete">删除</view>
+                      </view>
+                   </view>
+                  
+ 
+
+                  </view>
+                    
+            <view class="line"></view>
+        </view>
+    </view>
+    
+</view>
+ <van-button class='btn' type="primary" size="large" color="#7232dd" bindtap="onAdd" >添加地址</van-button>

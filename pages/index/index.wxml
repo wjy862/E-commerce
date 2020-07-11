@@ -14,7 +14,7 @@
 </swiper-item>
 </block>
 </swiper>-->
-
+ 
 <!--轮播图可触发事件-->
 <view>
  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">

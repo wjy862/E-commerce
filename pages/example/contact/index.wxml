@@ -1,0 +1,35 @@
+<!-- 联系我们 -->
+<view class="main">
+ 
+    <view class="mcname">中国大陆仓库</view>
+    <view class="mcinfo">
+        <text class="mctlt">Receiver：</text>
+        <text class="mcval">FR79343962</text>
+    </view>
+    <view class="mcinfoW" open-type="contact">
+        <text class="mctlt">Address：</text>
+        <text class="mcvalW" >沙田镇西大坦启盈国际快件中心15#递四方Z集运仓#FR79343962#</text>
+    </view>
+  
+    <view class="mcinfo">
+        <text class="mctlt">City：</text>
+        <text class="mcval">东莞市</text>
+    </view>
+    <view class="mcinfo">
+        <text class="mctlt">State：</text>
+        <text class="mcval">广东省</text>
+    </view>
+    <view class="mcinfo" bindtap="click">
+        <text class="mctlt">Country：</text>
+        <text class="mcval">中国大陆</text>
+    </view>
+        <view class="mcinfo" bindtap="click">
+        <text class="mctlt">ZipCode：</text>
+        <text class="mcval">523000</text>
+    </view>
+     
+    <view class="mcinfo" bindtap="click">
+        <text class="mctlt">Tel：</text>
+        <text class="mcval">18038227689</text>
+    </view>
+</view>

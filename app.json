@@ -2,27 +2,33 @@
   "pages": [
     "pages/home/home",
     "pages/transport/transport",
-    "pages/addressMgt/addressMgt",
+    "pages/userlogin/userlogin",
+    "pages/userregist/userregist",
+  
     
+    "pages/addressMgt/addressMgt",
     "pages/index/index",
     "pages/category/index",
-    "pages/goods_liste/index",
-    "pages/goos_detail/index",
     "pages/cart/index",
     "pages/collect/index",
     "pages/order/index",
     "pages/search/index",
-    "pages/user/index",
     "pages/feedback/index",
-    "pages/login/index",
-    "pages/auth/index",
-    "pages/pay/index"
-  
+    "pages/pay/index",
+    "pages/mine/mine",
+    "pages/example/ban/index",
+    "pages/example/coupons/index",
+    "pages/example/contact/index",
+    "pages/example/compensation/index",
+    "pages/example/rebate/index",
+    "pages/service/index",
+    "service/index",
+    "pages/storage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ee4450",
-    "navigationBarTitleText": "黑马优购",
+    "navigationBarTitleText": "中法转运",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -31,25 +37,25 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "index",
+        "text": "首页",
         "iconPath": "icons/home.png",
         "selectedIconPath": "icons/home-o.png"
       },
       {
-        "pagePath": "pages/category/index",
-        "text": "category",
+        "pagePath": "pages/order/index",
+        "text": "我的包裹",
         "iconPath": "icons/category.png",
         "selectedIconPath": "icons/category-o.png"
       },
       {
         "pagePath": "pages/cart/index",
-        "text": "index",
+        "text": "客服",
         "iconPath": "icons/cart.png",
         "selectedIconPath": "icons/cart-o.png"
       },
       {
-        "pagePath": "pages/user/index",
-        "text": "category",
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
         "iconPath": "icons/My.png",
         "selectedIconPath": "icons/My-o.png"
       }
@@ -75,6 +81,8 @@
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
     "van-toast": "@vant/weapp/toast/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-steps": "@vant/weapp/steps/index"
+
   }
 }

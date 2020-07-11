@@ -1,4 +1,41 @@
 <!--pages/home/home.wxml-->
 <view class="home">
-  <van-button type="info" bindtap="toTransport">我要运转</van-button>
+<view>
+ <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+ <van-grid column-num="2">
+   <block wx:for="{{switchItems}}" wx:key="unique">
+    <view class="item" data-hi="{{item.url}}" bindtap="{{item.bindtap}}">
+      <van-grid-item icon="{{item.icon}}" text="{{item.text}}"  />
+    </view>
+  </block>
+</van-grid>   
+
+
+  <view class="dingzhi">
+        <view class="block-title">
+        <text class="title"> 转运流程</text>
+    </view>
+        <view class="flow-process"> 
+            <block wx:for="{{flowProcessList}}" wx:key="unique">
+                <view class="flow-process-item">
+                    <view class="flow-process-con">
+                        <text class="flow-process-index">{{index+1}} {{item.name}}</text>
+                        <text class="flow-process-title">{{item.description}}</text>
+                    </view>
+                </view>
+                <view  wx:if="{{index < flowProcessList.length-1}}">
+                    <image class="flow-process-arrow" src="{{arrow}}"></image>
+                </view>
+            </block>
+        </view>
+    </view>
+
 </view>

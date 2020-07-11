@@ -1,0 +1,50 @@
+/* pages/transport/transport.wxss */
+.transport{
+  padding-bottom: 60px;
+}
+.store-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+.store-item .label{
+  font-size: 14px;
+  color: #323233;
+}
+.methods-title .van-cell-group__title{
+  background: #f7f8fa;
+}
+
+.m1{
+  padding: 16px;
+  font-size: 14px;
+  color: rgb(214, 214, 214);
+}
+
+.footer-bar{
+  z-index: 9 !important;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.agree{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 10px;
+  color: #404041;
+  flex: 1; 
+  text-align: left;
+}
+.agree .xieyi{
+  color: #1a88fa;
+}
+
+.agreement{
+  color: #646566;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 16px;
+  max-height: 50vh;
+  overflow-y: scroll;
+
+}
