@@ -11,13 +11,13 @@ Page({
       store: '中国大陆仓',
       no: null,
       methods: 'methods1',
-      service: '尚未选择',
+      service: '默认合箱运转',
       serviceDescription: '无',
       insurance: '无',
       direction: '法国寄往中国',
       route: '尚未选择',
     },
-    
+    aid:1,
     storeList: [
       { text: '中国大陆仓', value: '中国大陆仓' },
       { text: '其他仓', value: '其他仓' }
@@ -47,6 +47,8 @@ Page({
 
     goodsVisible: false, 
     goodsList: [], // 保存物品信息列表
+    
+
 
     methods: 'methods1',
 
@@ -189,23 +191,31 @@ Page({
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值)
     var that = this;
     var depotname = this.data.form.store;
-    console.log(depotname)
+    console.log("depotname:"+depotname)
     var numcn = this.data.form.no;
-    console.log(numcn)
+    console.log("numcn:"+numcn)
     if(this.data.form.methods=="methods1"){
     var typetransport = "合箱转运";
     }else if(this.data.form.methods=="methods2"){
     var typetransport = "单票转运";
     }
-    console.log(typetransport)
+    console.log("typetransport:"+typetransport)
     var service = this.data.form.service;
-    console.log(service)
+    console.log("service:"+service)
     var insurance = this.data.form.insurance;
-    console.log(insurance)
+    console.log("insurance:"+insurance)
     var uid=getApp().globalData.uid
-    console.log(uid)
-    console.log(app.globalData.aid)
-    
+    console.log("uid:"+uid)
+    if(app.globalData.aid!=null){
+      var aid=app.globalData.aid
+    }else{
+      var aid=this.data.aid
+    }
+    console.log("app.globalData.aid:"+app.globalData.aid)
+    console.log("this.data.aid:"+this.data.aid)
+    console.log("aid:"+aid)
+    var parcels=this.data.goodsList
+    console.log("parcels:"+parcels)
     // 添加订单  
     wx.request({
       url: "http://localhost:8080/4px_logistics/CommandController/commandAdd", 
@@ -216,7 +226,8 @@ Page({
         'service': service,
         'insurance': insurance,
         'uid':uid,
-        'aid':app.globalData.aid
+        'aid':aid,
+        //'parcels': parcels
       },
       method: "POST",
       header: {

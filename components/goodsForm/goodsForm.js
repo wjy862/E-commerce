@@ -4,9 +4,9 @@ Component({
   },
   data: {
     goods: {
-      name: '',
-      num: 1,
-      price: null,
+      pname: '',
+      quantity: 1,
+      prix: null,
       type: '衣服'
     },
 
@@ -32,9 +32,9 @@ Component({
       this.triggerEvent('add', this.data.goods);
       this.setData({
         goods: {
-          name: '',
-          num: 1,
-          price: null,
+          pname: '',
+          quantity: 1,
+          prix: null,
           type: '衣服'
         }
       })

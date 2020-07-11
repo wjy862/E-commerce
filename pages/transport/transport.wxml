@@ -77,8 +77,8 @@
   <van-panel 
     wx:for="{{goodsList}}" 
     wx:key="index" 
-    title="{{item.name}}" 
-    desc="分类：{{item.type}}，  单价：{{item.price}}，  数量：{{item.num}}" 
+    title="{{item.pname}}" 
+    desc="分类：{{item.type}}，  单价：{{item.prix}}，  数量：{{item.quantity}}" 
     use-footer-slot
   >
     <view style="text-align: right" slot="footer">
