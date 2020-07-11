@@ -204,7 +204,8 @@ Page({
     console.log(insurance)
     var uid=getApp().globalData.uid
     console.log(uid)
-
+    console.log(app.globalData.aid)
+    
     // 添加订单  
     wx.request({
       url: "http://localhost:8080/4px_logistics/CommandController/commandAdd", 
@@ -214,7 +215,8 @@ Page({
         'typetransport': typetransport,
         'service': service,
         'insurance': insurance,
-        'uid':uid
+        'uid':uid,
+        'aid':app.globalData.aid
       },
       method: "POST",
       header: {
@@ -254,28 +256,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log(options)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+   
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**

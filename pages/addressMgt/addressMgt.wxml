@@ -4,9 +4,9 @@
    
         <view wx:for="{{adresses}}" wx:key="aid"> 
             
-          
+            <view data-index="{{item.aid}}" bindtap="onBack">
                 <view class="rt">
-                    <view class="price">{{item.aname}}</view>
+                    <view class="price"> {{item.aname}} </view>
                     <view class="name">
                         联系电话: 
                         <text class="money">{{item.atelephone}}</text>  
@@ -15,7 +15,7 @@
                         街道-门牌号等详细信息:
                         <text class="money">{{item.aadress}}</text>
                     </view>
-              
+            </view>
 
                      <view class="name">
                     <navigator url="/pages/adressUpdate/index?aid={{item.aid}}">

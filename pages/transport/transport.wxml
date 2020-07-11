@@ -109,7 +109,7 @@
     <van-tab title="单票运转" name="methods2">
       <!-- 地址 -->
       <van-cell-group>
-        <van-cell title="收货地址" is-link link-type="navigateTo" url="../addressMgt/addressMgt"/>
+        <van-cell title="收货地址" is-link link-type="navigateTo" url="../addressMgt/addressMgt?isActive=true"/>
         
         <van-cell label="{{address}}" border="{{false}}"/>
       </van-cell-group>
@@ -131,7 +131,7 @@
     </van-dropdown-menu>
   </view>
   <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
-  <van-cell label="{{form.service}}" value="{{serviceDescription}}" border="{{false}}"/>           
+  <van-cell label="{{form.service}}" value="{{form.serviceDescription}}" border="{{false}}"/>           
       </van-cell-group>
 
 
