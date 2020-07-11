@@ -12,9 +12,13 @@
 
       <Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange" >
 
-      <block wx:if="{{tabs[0].isActive}}">
-      
-  <van-row>
+      <block wx:if="{{tabs[0].isActive}}"></block>
+
+      <block wx:if="{{tabs[1].isActive}}"></block>
+      <block wx:if="{{tabs[2].isActive}}"></block>
+      <block wx:if="{{tabs[3].isActive}}"></block>
+      <block wx:if="{{tabs[4].isActive}}">
+        <van-row>
     <!--左侧 单号-->
     <van-col span="3" style="font-size:32rpx;">单号:</van-col>
         <!--左侧 单号码--><!--左侧 合-->
@@ -54,10 +58,43 @@
   <van-col span="11" offset="1" ><van-button plain type="primary">物流轨迹</van-button></van-col>
 </van-row>
 
-      </block>
 
-      <block wx:if="{{tabs[1].isActive}}">2</block>
-      <block wx:if="{{tabs[2].isActive}}">3</block>
-      <block wx:if="{{tabs[3].isActive}}">4</block>
-      <block wx:if="{{tabs[4].isActive}}">5</block>
+
+
+<text>\n</text><text>\n</text><text>\n</text><text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>上边是大致的排版样式，下边是从后台拿来的数据，这些数据需要在模板里显示出来。物流轨迹装饰按钮或者直接删了也可以</text>
+<text>\n</text>
+
+
+
+
+
+<van-panel 
+    wx:for="{{commandsList}}" 
+    wx:key="index" 
+    title="{{item.numcn}}" 
+    desc=" 单号：{{item.logisticsnum}}  物流号：{{item.cid}}，  预报时间：{{item.time}}，  运输方式：{{item.typetransport}}, 邮寄方向：{{item.direction}}, 邮寄方式：{{item.route}}" 
+    use-footer-slot
+  >
+   <!--弹出层-->
+    <van-cell title="查看订单" is-link bind:click="showPopup" />
+    <van-popup show="{{ show }}" bind:close="onClose">
+   <text> 重量：{{item.weighttotal}}\n  </text>
+    <text> 预报时间：{{item.weightpervolume}}\n</text>
+     <text> 体积：{{item.volume}}  \n</text>
+    <text> 计费重量：{{item.weightreal}}\n</text>
+     <text> 运费：{{item.amountlivraison}} \n </text>
+    <text> 费用明细：{{item.description}}\n</text>
+    <text> 支付状态：{{item.statuspayment}}\n</text>
+     <text> 转运仓名：{{item.depotname}}\n</text>
+    <text> 支付状态：{{item.statuspayment}}</text>
+    </van-popup>
+ 
+  </van-panel >
+
+
+
+      </block>
       </Tabs>

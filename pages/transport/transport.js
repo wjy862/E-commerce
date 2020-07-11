@@ -190,6 +190,7 @@ Page({
     data.goodsList = this.data.goodsList;
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值)
     var that = this;
+  
     var depotname = this.data.form.store;
     console.log("depotname:"+depotname)
     var numcn = this.data.form.no;
@@ -214,24 +215,32 @@ Page({
     console.log("app.globalData.aid:"+app.globalData.aid)
     console.log("this.data.aid:"+this.data.aid)
     console.log("aid:"+aid)
-    var parcels=this.data.goodsList
-    console.log("parcels:"+parcels)
+    console.log(data.goodsList)
+    var direction = this.data.form.direction;
+    console.log("direction:"+direction)
+    var route = this.data.form.route;
+    console.log("route:"+route)
+
+
     // 添加订单  
     wx.request({
       url: "http://localhost:8080/4px_logistics/CommandController/commandAdd", 
       data: { 
         'depotname': depotname,
         'numcn': numcn,
-        'typetransport': typetransport,
+       'typetransport': typetransport,
         'service': service,
         'insurance': insurance,
         'uid':uid,
         'aid':aid,
-        //'parcels': parcels
+        'direction':direction,
+        'route':route
+        //'parcelList':data.goodsList
       },
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded'
+       // 'Content-Type': 'application/json'
       },
       success: function (res) {
         console.log(res)

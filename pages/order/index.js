@@ -1,6 +1,6 @@
 // pages/order/index.js
 const WXAPI = require('../../wxapi/main')
-
+var app = getApp();
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
@@ -8,12 +8,13 @@ Page({
    * 页面的初始数据
    */ 
   data: {
+    commandsList:[],
     tabs: [
-      {id:0,value:"待认领",isActive:true}, 
+      {id:0,value:"待认领",isActive:false}, 
       {id:1,value:"待支付",isActive:false}, 
       {id:2,value:"待合箱",isActive:false},
       {id:3,value:"待签收",isActive:false},
-      {id:4,value:"全部",isActive:false}],
+      {id:4,value:"全部",isActive:true}],
       steps: [
         {
           text: '待入库',
@@ -32,6 +33,9 @@ Page({
           desc: '等待中',
         },
       ],
+      //弹出层
+      show: false,
+     
    
     },
 
@@ -48,6 +52,46 @@ Page({
         });
       }
     });
+    var that = this;
+    var uid=app.globalData.uid;
+    console.log(uid)
+      // 获得订单数据  
+      wx.request({
+        url: "http://localhost:8080/4px_logistics/CommandController/findCommandByUid", 
+        data: { 
+          'uid':uid,
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+         // 'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          console.log(res.data)
+         
+          if (res.statusCode== 200) {
+            wx.showToast({
+                title: '查询成功',
+                icon: 'success',
+                duration: 20000
+              })
+              setTimeout(function(){
+                wx.hideToast();
+              })
+              that.setData({
+                commandsList: res.data
+              })
+             
+          }  else {
+            wx.showToast({
+              title: '服务器升级中，请稍后联系我们 电话电话电话我是电话',
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+        }
+      })
   },
 
   /**
@@ -64,6 +108,7 @@ Page({
     this.sysCoupons()
     this.getMyCoupons()
     this.invalidCoupons()
+    this.onLoad()
   },
 
   /**
@@ -106,115 +151,15 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
-  sysCoupons: function () { // 读取可领取券列表
-    var _this = this;
-    WXAPI.coupons().then(function (res) {
-      if (res.code == 0) {
-        _this.setData({
-          sysCoupons: res.data
-        });
-      }
-    })
-  },
-  getCounpon: function (e) {
-    const that = this
-    if (e.currentTarget.dataset.pwd) {
-      wx.showToast({
-        title: '请通过优惠券码兑换',
-        icon: 'none'
-      })
-      return
-    }
-    WXAPI.fetchCoupons({
-      id: e.currentTarget.dataset.id,
-      token: wx.getStorageSync('token')
-    }).then(function (res) {
-      if (res.code == 20001 || res.code == 20002) {
-        wx.showModal({
-          title: '错误',
-          content: '来晚了',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 20003) {
-        wx.showModal({
-          title: '错误',
-          content: '你领过了，别贪心哦~',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 30001) {
-        wx.showModal({
-          title: '错误',
-          content: '您的积分不足',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 20004) {
-        wx.showModal({
-          title: '错误',
-          content: '已过期~',
-          showCancel: false
-        })
-        return;
-      }
-      if (res.code == 0) {
-        wx.showToast({
-          title: '领取成功，赶紧去下单吧~',
-          icon: 'success',
-          duration: 2000
-        })
-      } else {
-        wx.showModal({
-          title: '错误',
-          content: res.msg,
-          showCancel: false
-        })
-      }
-    })
-  },
-  getMyCoupons: function () {
-    var _this = this;
-    WXAPI.myCoupons({
-      token: wx.getStorageSync('token'),
-      status: 0
-    }).then(function (res) {
-      if (res.code == 0) {
-        _this.setData({
-          myCoupons: res.data
-        })
-      }
-    })
-  },
-  invalidCoupons: function () {
-    var _this = this;
-    WXAPI.myCoupons({
-      token: wx.getStorageSync('token'),
-      status: '1,2,3'
-    }).then(function (res) {
-      if (res.code == 0) {
-        _this.setData({
-          invalidCoupons: res.data
-        })
-      }
-    })
-  },
-//标题的点击事件 从子组件传递过来
-handleTabsItemChange(e){
-//获得被点击的标题索引
-const {index}=e.detail;
-//修改源数组
-let {tabs}=this.data;
-tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false)
-//赋值到data中
-this.setData({
-  tabs
-})
+  //弹出层
+showPopup() {
+  this.setData({ show: true });
+},
 
-}
+onClose() {
+  this.setData({ show: false });
+},
+
 
 
 })
