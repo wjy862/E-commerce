@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    aid:null,
     form: {
      
       aname: '尚未填写',
@@ -46,8 +47,9 @@ Page({
         openType: 'share',
       },
     ],
-
   },
+
+
   onClose() {
     this.setData({show: false});
   },
@@ -72,7 +74,7 @@ Page({
       msg = '';
       isValidated = true;
     }else{
-      msg = '请输入3-15位数字或字母';
+      msg = '请输入5-15位数字或字母';
     }
     this.setData({
       noErrorMsg: msg,
@@ -82,18 +84,26 @@ Page({
   },
 
   onSubmit(){
+      console.log(this.data.form.aname)
+      console.log(this.data.form.atelephone)
+      console.log(this.data.form.aadress)
+      console.log(this.data.form.acp)
+      console.log(this.data.form.appartement+'\n'+this.data.form.city)
+      console.log(getApp().globalData.uid)
+     
 
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值)
     // 添加订单  
     wx.request({
-      url: "http://localhost:8080/4px_logistics/CommandController/commandAdd", 
+      url: "http://localhost:8080/4px_logistics/AdressController/adressAdd", 
       data: { 
         'aname': this.data.form.aname,
         'atelephone': this.data.form.atelephone,
         'aadress': this.data.form.aadress,
         'acp': this.data.form.acp,
         'adepartement': this.data.form.appartement+'\n'+this.data.form.city,
-        'uid':getApp().globalData.uid
+        'uid':getApp().globalData.uid,
+      
       },
       method: "POST",
       header: {
@@ -101,7 +111,6 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        console.log(res.data)
        
         if (res.data== true) {
           wx.showToast({
@@ -112,9 +121,8 @@ Page({
             setTimeout(function(){
               wx.hideToast();
             }),
-          
-            wx.switchTab({
-              url: '../order/index' 
+            wx.navigateTo({
+              url: '../addressMgt/addressMgt',
             })
         }  else {
           wx.showToast({
@@ -133,7 +141,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+      this.setData({
+        aid:options.aid
+      })
   },
 
   /**

@@ -13,7 +13,7 @@
     placeholder="请输入收件人"
     input-align="right"
     border="{{true}}"
-    error-message="{{noErrorMsg}}"
+    
     error-message-align="right"
     bind:input="updateValue"
    
@@ -39,7 +39,7 @@
     placeholder="请输入物流单号"
     input-align="right"
     border="{{true}}"
-    error-message="{{noErrorMsg}}"
+
     error-message-align="right"
     bind:input="updateValue"
   
@@ -52,10 +52,10 @@
     placeholder="请输入邮编"
     input-align="right"
     border="{{true}}"
-    error-message="{{noErrorMsg}}"
+ 
     error-message-align="right"
     bind:input="updateValue"
-    bind:change="onCheckNo"
+ 
   />
 
 
