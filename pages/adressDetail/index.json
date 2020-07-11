@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要运转",
+  "usingComponents": {
+    "goods-form": "../../components/goodsForm/goodsForm"
+  }
+}

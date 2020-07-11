@@ -25,7 +25,11 @@ Page({
       {icon:"photo-o",text:"禁运物品查询",bindtap:"gotopage",url:"../example/ban/index"},
   ],
     flowProcessList: [{name:"购物",description:"使用仓库地址购物"},{name:"预报",description:"填写需转运的包裹信息"},{name:"支付",description:"支付转运费用"},{name:"收获",description:"坐等收货"}],
+    uid: "testhome",
     arrow:'../../image/right.png'
+    
+  
+
   },
   //轮播图的切换事件
 swiperChange: function (e) {
@@ -59,7 +63,12 @@ gotopage: function (event) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      var that = this
+      that.setData({
+        uid:getApp().globalData.uid,
+        age:options.ageData
+      })
+  
   },
 
   /**

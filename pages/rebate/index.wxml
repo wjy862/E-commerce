@@ -9,5 +9,5 @@
             round
             width="10rem"
             height="10rem"
-            src="/image/shareround.jpg"/>
+            src="/image/shareround.jpg" bindtap="onShareAppMessage" />
 </view>

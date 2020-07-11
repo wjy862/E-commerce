@@ -1,0 +1,124 @@
+<!--我要运转-->
+
+<view class="transport">
+
+
+
+
+  <!-- 收件人 -->
+  <van-field
+    
+    data-name="aname"
+    label="收件人"
+    placeholder="请输入收件人"
+    input-align="right"
+    border="{{true}}"
+    error-message="{{noErrorMsg}}"
+    error-message-align="right"
+    bind:input="updateValue"
+   
+  />
+  <!-- 联系电话 -->
+  <van-field
+    
+    data-name="atelephone"
+    label="联系电话"
+    placeholder="请输入联系电话"
+    input-align="right"
+    border="{{true}}"
+    error-message="{{noErrorMsg}}"
+    error-message-align="right"
+    bind:input="updateValue"
+    bind:change="onCheckNo"
+  />
+  <!-- 街道门牌号等详细信息 -->
+  <van-field
+   
+    data-name="aadress"
+    label="物流单号"
+    placeholder="请输入物流单号"
+    input-align="right"
+    border="{{true}}"
+    error-message="{{noErrorMsg}}"
+    error-message-align="right"
+    bind:input="updateValue"
+  
+  />
+  <!-- 邮编 -->
+  <van-field
+  
+    data-name="acp"
+    label="邮编"
+    placeholder="请输入邮编"
+    input-align="right"
+    border="{{true}}"
+    error-message="{{noErrorMsg}}"
+    error-message-align="right"
+    bind:input="updateValue"
+    bind:change="onCheckNo"
+  />
+
+
+ <!-- 收件城市所属区选择 -->
+  <view class="store-item">
+    <view class="label">城市所属区</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="appartement"
+        value="{{form.appartement}}" 
+        options="{{ appartementList }}" 
+        bind:change="updateValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+ 
+<!-- 收件城市选择 -->
+  <view class="store-item">
+    <view class="label">城市</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="city"
+        value="{{form.city}}" 
+        options="{{ cityList }}" 
+        bind:change="updateValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+ 
+
+  
+
+
+    
+        
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+
+
+ 
+
+
+
+  <!-- 底部提交栏 -->
+  <van-submit-bar
+    custom-class="footer-bar"
+    button-text="提 交"
+   
+    bind:submit="onSubmit"
+  >
+
+  </van-submit-bar>
+
+ 
+  <van-toast id="van-toast" />
+
+</view>

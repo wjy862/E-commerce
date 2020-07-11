@@ -80,7 +80,7 @@
 .baoming {
   height: 50rpx;
   width: 140rpx;
-  position: absolute;
+  position: flex;
   right: 10rpx;
   bottom: 10rpx;
   line-height: 50rpx;

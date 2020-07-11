@@ -2,6 +2,10 @@
   "pages": [
     "pages/home/home",
     "pages/transport/transport",
+    "pages/userlogin/userlogin",
+    "pages/userregist/userregist",
+  
+    
     "pages/addressMgt/addressMgt",
     "pages/index/index",
     "pages/category/index",

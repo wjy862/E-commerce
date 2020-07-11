@@ -30,6 +30,11 @@ Page({
         })
       }
     });
+    if (getApp().globalData.uid!=null){
+      wx.switchTab({
+        url: '../home/home' 
+      })
+    }
   },
   goToRegist: function(){
     wx.navigateTo({
@@ -65,10 +70,10 @@ Page({
             setTimeout(function(){
               wx.hideToast();
             }),
-            console.log(getApp().globalData.username)
-            getApp().globalData.username = res.data.telephone;
+            app.globalData.uid = res.data.uid;
+            console.log(res.data.uid)
             wx.switchTab({
-              url: '../home/home'
+              url: '../home/home' 
             })
         }  else {
           wx.showToast({

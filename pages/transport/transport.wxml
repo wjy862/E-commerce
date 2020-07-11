@@ -1,22 +1,58 @@
 <!--我要运转-->
+
 <view class="transport">
 
   <!-- 运转仓 -->
   <view class="store-item">
     <view class="label">运转仓</view>
     <van-dropdown-menu
-      class="store"
+      class="store" 
       active-color="#eb4450"
     >
-      <van-dropdown-item 
+     <van-dropdown-item 
         data-name="store"
         value="{{form.store}}" 
         options="{{ storeList }}" 
         bind:change="updateValue" 
-      />
+      ></van-dropdown-item>
     </van-dropdown-menu>
   </view>
   <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+
+  <!-- 邮寄方向选择 -->
+  <view class="store-item">
+    <view class="label">邮寄选择</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="direction"
+        value="{{form.diection}}" 
+        options="{{ directionList }}" 
+        bind:change="updateValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+
+  <!-- 航线选择 -->
+  <view class="store-item">
+    <view class="label">航线选择</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="route"
+        value="{{form.route}}" 
+        options="{{ routeList }}" 
+        bind:change="updateValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+
 
   <!-- 物流单号 -->
   <van-field
@@ -79,7 +115,51 @@
       </van-cell-group>
 
       <!-- 物流服务 -->
-     
+     <van-cell-group>
+         <view class="store-item">
+    <view class="label">物流服务</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="service"
+        value="{{form.service}}" 
+        options="{{ serviceList }}" 
+        bind:change="updateServiceValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
+  <van-cell label="{{form.service}}" value="{{serviceDescription}}" border="{{false}}"/>           
+      </van-cell-group>
+
+
+      <!-- 增值服务 -->
+   <van-cell-group>
+         <view class="store-item">
+    <view class="label">增值服务</view>
+    <van-dropdown-menu
+      class="store" 
+      active-color="#eb4450"
+    >
+     <van-dropdown-item 
+        data-name="insurance"
+        value="{{form.insurance}}" 
+        options="{{ insuranceList }}" 
+        bind:change="updateValue" 
+      ></van-dropdown-item>
+    </van-dropdown-menu>
+  </view>
+  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>   
+      </van-cell-group>
+        
+  <text>\n</text>
+  <text>\n</text>
+  <text>\n</text>
+
+
+
 
     </van-tab>
   </van-tabs>

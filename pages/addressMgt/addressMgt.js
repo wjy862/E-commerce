@@ -7,6 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    
+     uid:null,
+     adresses:null,
+    
+
+
     courselist: [{
       imgs: [
           "../../image/Android.jpg",
@@ -33,7 +39,48 @@ Page({
         that.setData({
             userInfo: userInfo
         })
-    })
+    }),
+    that.setData({
+      uid:getApp().globalData.uid
+  }),
+  console.log(this.data.uid)
+  // 查询地址  
+  wx.request({
+    url: "http://localhost:8080/4px_logistics/AdressController/findAdressByUid", 
+    data: { 
+      'uid':this.data.uid
+    },
+    method: "POST",
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    success: function (res) {
+      console.log(res)
+      console.log(res.data)
+     
+      if (res.statusCode== 200) {
+        wx.showToast({
+            title: '查询成功',
+            icon: 'success',
+            duration: 20000
+          })
+          setTimeout(function(){
+            wx.hideToast();
+          }),
+          that.setData({
+            adresses:res.data
+        })
+      }  else {
+        wx.showToast({
+          title: '服务器升级中，请稍后联系我们 电话电话电话我是电话',
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+    }
+  })
+
+
   },
 
   /**

@@ -52,7 +52,7 @@ page {
 
 .login-btn button {
   color: #fff;
-  width: 200rpx;
+  width: 180rpx;
   height: 80rpx;
   line-height: 80rpx;
   border-color: #fff;
