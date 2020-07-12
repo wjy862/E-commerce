@@ -18,45 +18,47 @@
       <block wx:if="{{tabs[2].isActive}}"></block>
       <block wx:if="{{tabs[3].isActive}}"></block>
       <block wx:if="{{tabs[4].isActive}}">
-        <van-row>
-    <!--左侧 单号-->
-    <van-col span="3" style="font-size:32rpx;">单号:</van-col>
-        <!--左侧 单号码--><!--左侧 合-->
-    <van-col span="10" offset="1" style="font-size:32rpx;">12456256622<image class="icon" mode ="widthFix" src="/icons/cart.png"/></van-col>
-    
-   <!--右侧 三个图-->
-    <van-col span="2" offset="4"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
-    <van-col span="2"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
-    <van-col span="2"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
-  </van-row>
+        <view class="order-item">
+          <van-row style="">
+            <!--左侧 单号-->
+            <van-col span="3" style="font-size:32rpx;">单号:</van-col>
+                <!--左侧 单号码--><!--左侧 合-->
+            <van-col span="10" offset="1" style="font-size:32rpx;">12456256622<image class="icon" mode ="widthFix" src="/icons/cart.png"/></van-col>
+            
+          <!--右侧 三个图-->
+            <van-col span="2" offset="4"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
+            <van-col span="2"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
+            <van-col span="2"><image class="icon" mode ="widthFix" src="/icons/home.png"/></van-col>
+          </van-row>
 
-  <van-row>
-  <!--左侧 商家物流号-->
-    <van-col span="3"><text class="title">物流号:</text></van-col>
-      <!--左侧 商家物流号码-->
-    <van-col span="3" ><text class="title">12456256622</text></van-col>
-    
-    <!--右侧 预报时间-->
-     <!--右侧 时间-->
-    <van-col span="3" offset="8"><text class="title">预报时间:</text></van-col>
-    <van-col span="6"><text class="title">2020-06-30 05:04</text></van-col>
-    <van-col span="1"></van-col>
-  </van-row>
-  <text>\n</text>
- <!--左侧 中国大陆仓库-->
- <!--中间 流程图-->
-  <!--右侧 法国-->
-  <van-row>
-  <van-col span="7">中国大陆仓库</van-col>
-  <van-col span="7" offset="10">法国</van-col>
-</van-row>
-<van-steps steps="{{ steps }}" active="{{ active }}" />
- <!--左侧 查看订单-->
- <!--右侧 物流轨迹-->
-<van-row gutter="100">
-  <van-col span="11" offset="1"><van-button plain type="primary">查看订单</van-button></van-col>
-  <van-col span="11" offset="1" ><van-button plain type="primary">物流轨迹</van-button></van-col>
-</van-row>
+          <van-row>
+            <!--左侧 商家物流号-->
+              <van-col span="3"><text class="title">物流号:</text></van-col>
+                <!--左侧 商家物流号码-->
+              <van-col span="3" ><text class="title">12456256622</text></van-col>
+              
+              <!--右侧 预报时间-->
+              <!--右侧 时间-->
+              <van-col span="3" offset="8"><text class="title">预报时间:</text></van-col>
+              <van-col span="6"><text class="title">2020-06-30 05:04</text></van-col>
+              <van-col span="1"></van-col>
+            </van-row>
+            <text>\n</text>
+          <!--左侧 中国大陆仓库-->
+          <!--中间 流程图-->
+            <!--右侧 法国-->
+            <van-row>
+            <van-col span="7">中国大陆仓库</van-col>
+            <van-col span="7" offset="10">法国</van-col>
+          </van-row>
+          <van-steps steps="{{ steps }}" active="{{ active }}" />
+          <!--左侧 查看订单-->
+          <!--右侧 物流轨迹-->
+          <van-row gutter="100">
+            <van-col span="11" offset="1"><van-button plain type="primary">查看订单</van-button></van-col>
+            <van-col span="11" offset="1" ><van-button plain type="primary">物流轨迹</van-button></van-col>
+          </van-row>
+        </view>
 
 
 

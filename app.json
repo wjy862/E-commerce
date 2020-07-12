@@ -43,14 +43,14 @@
       {
         "pagePath": "pages/order/index",
         "text": "我的包裹",
-        "iconPath": "icons/category.png",
-        "selectedIconPath": "icons/category-o.png"
+        "iconPath": "icons/package.png",
+        "selectedIconPath": "icons/package-o.png"
       },
       {
         "pagePath": "pages/cart/index",
         "text": "客服",
-        "iconPath": "icons/cart.png",
-        "selectedIconPath": "icons/cart-o.png"
+        "iconPath": "icons/kefu.png",
+        "selectedIconPath": "icons/kefu-o.png"
       },
       {
         "pagePath": "pages/mine/mine",

@@ -1,35 +1,92 @@
 <!-- 联系我们 -->
 <view class="main">
- 
+    <!-- 下面这些数据多的话可考虑用wx:for遍历渲染出来 -->
+    
     <view class="mcname">中国大陆仓库</view>
     <view class="mcinfo">
         <text class="mctlt">Receiver：</text>
-        <text class="mcval">FR79343962</text>
+        <text class="mcval">{{receiver}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="receiver"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
-    <view class="mcinfoW" open-type="contact">
+    <view class="mcinfoW mcinfo" open-type="contact">
         <text class="mctlt">Address：</text>
-        <text class="mcvalW" >沙田镇西大坦启盈国际快件中心15#递四方Z集运仓#FR79343962#</text>
+        <text class="mcvalW" >{{address}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="address"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
   
     <view class="mcinfo">
         <text class="mctlt">City：</text>
-        <text class="mcval">东莞市</text>
+        <text class="mcval">{{city}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="city"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
     <view class="mcinfo">
         <text class="mctlt">State：</text>
-        <text class="mcval">广东省</text>
+        <text class="mcval">{{state}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="state"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
     <view class="mcinfo" bindtap="click">
         <text class="mctlt">Country：</text>
-        <text class="mcval">中国大陆</text>
+        <text class="mcval">{{country}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="country"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
         <view class="mcinfo" bindtap="click">
         <text class="mctlt">ZipCode：</text>
-        <text class="mcval">523000</text>
+        <text class="mcval">{{zipCode}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="zipCode"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
      
     <view class="mcinfo" bindtap="click">
         <text class="mctlt">Tel：</text>
-        <text class="mcval">18038227689</text>
+        <text class="mcval">{{tel}}</text>
+        <van-button 
+            type="primary" 
+            plain 
+            size="mini" 
+            class="btn" 
+            data-key="tel"
+            bindtap="onCopy"
+        >复制</van-button>
     </view>
 </view>

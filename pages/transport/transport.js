@@ -97,11 +97,20 @@ Page({
     console.log(nameDescription)
     if(e.detail=="中法空运快线"){
       console.log(1)
-      this.data.form[nameDescription] ="0-0.5千克。。。。。。。。。。。。。。。。。。。。说明说明说明说明说明说明说明说明说明说明";
+      let val = "0-0.5千克说明说明说明说明说说明说明说明说明说明说明说明说明说明说明";
+      this.data.form[nameDescription] = val;
+      // 用setData去更新对应的值，页面才会监听到并做视图更新
+      this.setData({
+        ['form.serviceDescription']: val
+      })
       console.log(this.data.form[nameDescription] )
     }else if(e.detail=="中法小包快线"){
       console.log(2)
-      this.data.form[nameDescription] ="每票收30CNY。。。。。。。。。。。。。。。。。。。。说明说明说明说明说明说明";
+      let val = "每票收30CNY说明说明说明说明说说明说明说明说明说明说明";
+      this.data.form[nameDescription] = val;
+      this.setData({
+        ['form.serviceDescription']: val
+      })
       console.log(this.data.form[nameDescription] )
     }
   },

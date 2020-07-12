@@ -2,26 +2,45 @@
 .add_btn{
   width: 100%;
   position: fixed;
-  bottom: 30rpx;
+  bottom: 0;
 }
 .btn{
   margin-top: 30rpx;
-  width: 450rpx;
+  /* width: 450rpx; */
   background: #14a1fd;
   color: #fff;
   border-radius: 70rpx;
 }
 .container {
-  background-color: #f2f2f2;
+  background-color: #fff;
+  padding-bottom: 80px;
 }
 
 .page {
-  width: 96%;
+  /* width: 96%; */
   height: auto;
   background: #fff;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 20rpx;
+  /* margin-left: 5%; */
+  /* margin-right: 5%; */
+  /* margin-top: 20rpx; */
+  padding: 8px;
+}
+
+.address-item{
+  padding:  16px 8px;
+  border-bottom: 1px solid #f2f2f2;
+}
+/* .address-item:last-child{
+  border-bottom: 0;
+} */
+
+.oper{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.oper-btn{
+  margin-left: 4px;
 }
 
 .title {

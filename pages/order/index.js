@@ -14,7 +14,8 @@ Page({
       {id:1,value:"待支付",isActive:false}, 
       {id:2,value:"待合箱",isActive:false},
       {id:3,value:"待签收",isActive:false},
-      {id:4,value:"全部",isActive:true}],
+      {id:4,value:"全部",isActive:true}
+    ],
       steps: [
         {
           text: '待入库',
@@ -105,7 +106,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< HEAD
   
+=======
+    // this.sysCoupons() 
+    // this.getMyCoupons()
+    // this.invalidCoupons()
+    // ?? 没实现这些函数报错
+>>>>>>> e98322bc71a87e29aba4867763e3b8a437e93bae
     this.onLoad()
   },
 
@@ -157,6 +165,12 @@ showPopup() {
 onClose() {
   this.setData({ show: false });
 },
+
+handleTabsItemChange(e){
+  let index = e.detail.index;
+  this.data.tabs.forEach((item) => item.isActive = item.id === index);
+  this.setData({tabs: this.data.tabs});
+}
 
 
 
