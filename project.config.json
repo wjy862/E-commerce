@@ -69,6 +69,48 @@
 					"id": -1,
 					"name": "我要运转",
 					"pathName": "pages/transport/transport",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分享",
+					"pathName": "pages/rebate/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系我们",
+					"pathName": "pages/example/contact/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的包裹",
+					"pathName": "pages/order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/addressMgt/addressMgt",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推广",
+					"pathName": "pages/example/rebate/index",
 					"scene": null
 				}
 			]

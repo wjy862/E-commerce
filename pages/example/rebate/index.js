@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 1,
+    active: '好友明细',
     rebateimg:"../../../image/rebate.jpg",
     tabs: ["好友明细", "返利明细", "返券明细"]
   },
@@ -71,12 +71,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -185,5 +179,25 @@ Page({
       icon: 'none',
     });
   },
+
+  /**
+   * 分享推广
+   */
+  onShareAppMessage: function (ops) {
+    console.log(ops);
+    /**https://blog.csdn.net/qq_34246850/article/details/80334978 */
+    return {
+      title: "这是标题",
+      imageUrl: this.rebateimg, // 这是分享封面图片地址
+      // path: '/pages/rebate/index', 默认是当前页面，必须是以‘/’开头的完整路径
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
+      }
+    }
+    
+  }
 
 })

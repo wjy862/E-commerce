@@ -21,3 +21,8 @@ font-size:22rpx;
   background:#aaa;
   
   }
+
+.order-item{
+  padding: 16px 8px 16px 8px;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}

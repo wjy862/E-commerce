@@ -15,3 +15,6 @@ page,
 .price {
   color:#e64340;
 }
+.weui-navbar{
+  background: #fff;
+}

@@ -6,12 +6,11 @@
        style="width:100%;background-color:black;" ></image>
   </navigator>
 </view>
-<van-divider />
-<text>\n</text>
+<!-- <van-divider /> -->
 
 
 
-<van-tabs active="a">
+<van-tabs active="{{active}}">
 <block wx:for="{{tabs}}" wx:key="unique">
   <van-tab title="{{item}}" name="{{item}}"></van-tab>
   </block>
@@ -20,5 +19,11 @@
 
 
 <view class='add_btn'>
-       <van-button class='btn' type="primary" size="large" color="#7232dd">去推广</van-button>
+       <van-button 
+        class='btn' 
+        type="primary" 
+        size="large" 
+        color="#7232dd"
+        open-type="share"
+      >去推广</van-button>
 </view>

@@ -8,15 +8,14 @@ Page({
    */
   data: {
     
-     uid:null,
-     adresses:null,
+    uid:null,
+    adresses:[],
     aid:null,
     isActive:false,
+    color: "#7fabfd",
+    newsList: [],
+    HomeIndex: 0,
 
-
-  color: "#7fabfd",
-  newsList: [],
-  HomeIndex: 0
   },
   onAdd() {
     wx.navigateTo({

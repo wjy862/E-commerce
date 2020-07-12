@@ -62,7 +62,20 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (ops) {
+    console.log(ops);
+    /**https://blog.csdn.net/qq_34246850/article/details/80334978 */
+    return {
+      title: "这是标题",
+      imageUrl: this.data.shareround[0],// 这是分享封面图片地址
+      path: '/pages/rebate/index',        // 默认是当前页面，必须是以‘/’开头的完整路径
+      success: function(res) {
+        console.log(res, "转发成功")
+      },
+      fail: function(res) {
+        console.log(res, "转发失败")
+      }
+    }
+    
   }
 })

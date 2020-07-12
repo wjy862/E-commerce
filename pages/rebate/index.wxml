@@ -5,9 +5,13 @@
             mode="widthFix" 
             style="width:100%;background-color:black;"></image>
       </view>
-            <van-image
+      <!-- <van-image
             round
             width="10rem"
             height="10rem"
-            src="/image/shareround.jpg" bindtap="onShareAppMessage" />
+            src="/image/shareround.jpg" bindtap="onShareAppMessage" /> -->
+
+      <button open-type="share" class="share">
+            <image class="share-icon" src="/image/shareround.jpg"></image>
+      </button>
 </view>

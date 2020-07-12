@@ -15,3 +15,15 @@
   width: 160rpx;
   height: 160rpx;
 }
+.share{
+  background: none; 
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border-radius: 50%;
+}
+.share .share-icon{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
