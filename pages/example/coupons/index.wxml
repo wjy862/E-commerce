@@ -24,30 +24,38 @@
               </view>
             </form>
           </view>
-          <view wx:if="{{sysCoupons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>
+          <view wx:if="{{bons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>
             <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无可领取优惠券</view>
           </view>
-          <view class="weui-panel" wx:for="{{sysCoupons}}" wx:key="*key" wx:if="{{!item.pwd}}">
-            <view class="weui-panel__hd">{{item.name}}</view>
+
+
+
+
+          <view class="weui-panel" wx:for="{{bons}}" wx:key="unique" >
+        <view class="weui-panel" wx:for="{{item.possesses}}" wx:key="unique" >
+            <view class="weui-panel__hd">{{item.bon.btype}}</view>
             <view class="weui-panel__bd">
               <view class="weui-media-box weui-media-box_text">
                 <view class="weui-media-box__title weui-media-box__title_in-text">
-                  <text class='price' wx:if="{{item.moneyMin == item.moneyMax}}">￥ {{item.moneyMax}}</text>
-                  <text class='price' wx:else>￥ {{item.moneyMin}} - {{item.moneyMax}}</text>
+                  <text class='price' >￥ {{item.bon.bamout}}</text>
                 </view>
-                <view class="weui-media-box__desc">满 {{item.moneyHreshold}} 元使用</view>
+                <view class="weui-media-box__desc">{{item.bon.conditionutilisation}}满 50 元使用</view>
+                 <view class="weui-media-box__desc">{{item.bon.conditionroute}}仅限海运使用</view>
                 <view class="weui-media-box__info">
                   <view class="weui-media-box__info__meta">
-                    <view wx:if="{{item.dateEndType == 0}}"> {{item.dateEnd}} 前有效 </view>
-                    <view wx:if="{{item.dateEndType == 1}}"> 领取 {{item.dateEndDays}} 天内有效 </view>
+                    <view wx:if="{{item.bdatefin != null}}"> {{item.bdatefin}} 前有效 </view>
+                    <view wx:if="{{item.blimitedate != null}}"> 有效期： {{item.blimitedate}}  </view>
                   </view>
                   <view class="weui-media-box__info__meta" style='float:right;'>
-                    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="getCounpon" data-id="{{item.id}}">立即领取</button>
+                    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="getCounpon" data-id="{{item.id}}">下单时自动使用</button>
                   </view>
                 </view>
               </view>
             </view>
           </view>
+          </view>
+
+
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <view wx:if="{{myCoupons.length <= 0}}" class="weui-loadmore weui-loadmore_line" style='margin-top:200rpx;'>

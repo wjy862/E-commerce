@@ -8,12 +8,11 @@
     
     "pages/addressMgt/addressMgt",
     "pages/index/index",
-    "pages/category/index",
-    "pages/cart/index",
-    "pages/collect/index",
+
+
     "pages/order/index",
     "pages/search/index",
-    "pages/feedback/index",
+    "pages/cart/index",
     "pages/pay/index",
     "pages/mine/mine",
     "pages/example/ban/index",

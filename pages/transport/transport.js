@@ -234,8 +234,8 @@ Page({
         'uid':uid,
         'aid':aid,
         'direction':direction,
-        'route':route
-        //'parcelList':data.goodsList
+        'route':route,
+        'parcelList':data.goodsList
       },
       method: "POST",
       header: {
@@ -244,7 +244,6 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        console.log(res.data)
        
         if (res.data== true) {
           wx.showToast({
@@ -276,7 +275,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
+ 
   },
 
   /**
@@ -290,7 +289,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+ 
   },
 
   /**

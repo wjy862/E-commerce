@@ -1,5 +1,5 @@
 const WXAPI = require('../../../wxapi/main')
-
+var app=getApp();
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
@@ -31,8 +31,44 @@ Page({
         });
       }
     });
-  },
-
+    var uid=app.globalData.uid;
+       // 获得订单数据  
+       wx.request({
+        url: "http://localhost:8080/4px_logistics/BonController/findPossessByUid", 
+        data: { 
+          'uid':uid,
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+         // 'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          console.log(res.data)
+         
+          if (res.statusCode==200) {
+            wx.showToast({
+                title: '查询成功',
+                icon: 'success',
+                duration: 20000
+              })
+              setTimeout(function(){
+                wx.hideToast();
+              })
+             that.setData({
+               bons:res.data
+             })
+          }  else {
+            wx.showToast({
+              title: '服务器升级中，请稍后联系我们 电话电话电话我是电话',
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+        }
+      })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -83,7 +119,57 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
+
   getCounponByPwd(e){ // 通过优惠码领取优惠券
+    var that = this;
+    var uid=app.globalData.uid;
+    console.log(uid)
+    const pwd = e.detail.value.pwd;
+    console.log(pwd)
+      // 添加优惠券数据  
+      wx.request({
+        url: "http://localhost:8080/4px_logistics/BonController/bonFindOne", 
+        data: { 
+          'uid':uid,
+          'bid':pwd
+        },
+        method: "POST",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+         // 'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          console.log(res.data)
+         
+          if (res.data== true) {
+            wx.showToast({
+                title: '获取优惠卷成功',
+                icon: 'success',
+                duration: 20000
+              })
+              setTimeout(function(){
+                wx.hideToast();
+              })
+              wx.navigateTo({
+                url: '../coupons/index',
+              })
+             
+          }  else {
+            wx.showToast({
+              title: '无可使用优惠券',
+              icon: 'loading',
+              duration: 2000
+            })
+          }
+        }
+      })
+  
+  },
+
+
+
+  getCounponByPwd1(e){ // 通过优惠码领取优惠券
     WXAPI.addTempleMsgFormid({
       token: wx.getStorageSync('token'),
       type: 'form',

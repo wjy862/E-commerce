@@ -131,7 +131,9 @@
     </van-dropdown-menu>
   </view>
   <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
-  <van-cell label="{{form.service}}" value="{{form.serviceDescription}}" border="{{false}}"/>           
+  <van-cell label="物流服务说明" value="{{form.serviceDescription}}" border="{{false}}"/>  
+  
+           
       </van-cell-group>
 
 
