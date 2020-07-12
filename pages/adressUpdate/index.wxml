@@ -16,7 +16,7 @@
   />
   <!-- 联系电话 -->
   <van-field
-     value="{{data.atelephone}}"
+     value="{{atelephone}}"
     data-name="atelephone"
     label="联系电话"
     placeholder="请输入联系电话"
@@ -29,7 +29,7 @@
   />
   <!-- 街道门牌号等详细信息 -->
   <van-field
-    value="{{data.aadress}}"
+    value="{{aadress}}"
     data-name="aadress"
     label="物流单号"
     placeholder="请输入物流单号"
@@ -42,7 +42,7 @@
   />
   <!-- 邮编 -->
   <van-field
-   value="{{data.acp}}"
+   value="{{acp}}"
     data-name="acp"
     label="邮编"
     placeholder="请输入邮编"

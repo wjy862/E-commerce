@@ -54,6 +54,7 @@ App({
   globalData:{
     userInfo:null,
     telephone:null,
-    uid: 1
+    uid: 1,
+    aid: null
   }
 })

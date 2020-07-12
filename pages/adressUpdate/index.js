@@ -65,7 +65,7 @@ Page({
   updateValue(e) {
     // event.detail 为当前输入的值
     let name = e.target.dataset.name;
-    this.data.form[name] = e.detail;
+    this.data[name] = e.detail;
   },
 
 
@@ -88,19 +88,25 @@ Page({
   },
 
   onSubmit(){
-
+    console.log(this.data.aname)
+    console.log(this.data.atelephone)
+    console.log(this.data.aadress)
+    console.log(this.data.acp)
+    console.log(this.data.form.appartement+'\n'+this.data.form.city)
+    console.log(getApp().globalData.uid)
+    console.log(this.data.aid)
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值)
     // 跟新订单  
     wx.request({
       url: "http://localhost:8080/4px_logistics/AdressController/adressUpdate", 
       data: { 
-        'aname': this.data.form.aname,
-        'atelephone': this.data.form.atelephone,
-        'aadress': this.data.form.aadress,
-        'acp': this.data.form.acp,
+        'aname': this.data.aname,
+        'atelephone': this.data.atelephone,
+        'aadress': this.data.aadress,
+        'acp': this.data.acp,
         'adepartement': this.data.form.appartement+'\n'+this.data.form.city,
         'uid':getApp().globalData.uid,
-        'aid': this.data.form.aid
+        'aid': this.data.aid
       },
       method: "POST",
       header: {

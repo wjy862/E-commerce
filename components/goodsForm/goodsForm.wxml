@@ -3,8 +3,8 @@
   <view class="title">物品信息</view>
 
   <van-field
-    value="{{goods.name}}"
-    data-name="name"
+    value="{{goods.pname}}"
+    data-name="pname"
     label="物品名称"
     placeholder="请输入物品名称"
     input-align="right"
@@ -14,13 +14,13 @@
 
   <van-cell title="物品数量" center>
     <view slot="right-icon">
-      <van-stepper data-name="num" value="{{goods.num}}" integer bind:change="updateValue" />
+      <van-stepper data-name="quantity" value="{{goods.quantity}}" integer bind:change="updateValue" />
     </view>
   </van-cell>
 
   <van-field
-    value="{{ goods.price }}"
-    data-name="price"
+    value="{{ goods.prix }}"
+    data-name="prix"
     type="number"
     label="申报单价"
     placeholder="请输入申报单价"

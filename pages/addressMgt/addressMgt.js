@@ -11,14 +11,9 @@ Page({
      uid:null,
      adresses:null,
     aid:null,
+    isActive:false,
 
 
-    courselist: [{
-      imgs: [
-          "../../image/Android.jpg",
-          "../../image/Java.jpg"
-      ]
-  }],
   color: "#7fabfd",
   newsList: [],
   HomeIndex: 0
@@ -27,6 +22,16 @@ Page({
     wx.navigateTo({
       url: '/pages/adressAdd/index',
     })
+  },
+  onBack:function(event) {
+    console.log(event)
+    if(this.data.isActive=='true'){
+      app.globalData.aid = event.currentTarget.dataset.index; 
+      wx.navigateBack({
+        delta: 0,
+      })
+    }
+ 
   },
   
   onDelete:function(event){
@@ -77,11 +82,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    console.log(this.data.isActive)
     var that = this;
-    //console.log(config.courses);
-    that.setData({
-        courses: config.courses
-    });
+    //获取地址id
+    if(options.isActive!=null){
+      this.setData({
+        isActive:options.isActive
+      }),  
+      console.log(this.data.isActive)
+    }
+ 
+      
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
         //更新数据
@@ -128,8 +140,6 @@ Page({
       }
     }
   })
-
-
   },
 
   /**

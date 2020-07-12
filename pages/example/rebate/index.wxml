@@ -10,19 +10,12 @@
 <text>\n</text>
 
 
-<view class="weui-navbar" style="border: 100rpx" >
-        <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
-          </view>
-        </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-      </view>
 
 <van-tabs active="a">
-  <van-tab title="标签 1" name="a">内容 1</van-tab>
-  <van-tab title="标签 2" name="b">内容 2</van-tab>
-  <van-tab title="标签 3" name="c">内容 3</van-tab>
+<block wx:for="{{tabs}}" wx:key="unique">
+  <van-tab title="{{item}}" name="{{item}}"></van-tab>
+  </block>
+
 </van-tabs>
 
 
