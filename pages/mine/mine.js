@@ -3,11 +3,12 @@ const app = getApp()
 Page({
 
   data: {
+    uid: app.globalData.uid,
     currentbalance:0.00,
     rebate:0,
     username:"未登录",
     userInfo: {},
-    userimg:"../../image/skd.jpg",
+    userimg:"/icons/profile.png",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     arrow:"../../image/0106arrow3x.png",
@@ -38,7 +39,7 @@ Page({
       {
         icon: '../../image/qiandao.png',
         text: '我的中转仓库地址',
-        url:"../example/contact/index"
+        url:"../storage/index"
       } 
     ], 
     services:[
@@ -93,6 +94,7 @@ switchtopage: function (event) {
     console.log(username)
     if (app.globalData.userInfo) {
       this.setData({
+        uid:getApp().globalData.uid,
         userInfo: app.globalData.userInfo,
         username: app.globalData.username,
         hasUserInfo: true

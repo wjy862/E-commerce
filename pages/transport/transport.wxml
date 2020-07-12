@@ -111,32 +111,10 @@
       <van-cell-group>
         <van-cell title="收货地址" is-link link-type="navigateTo" url="../addressMgt/addressMgt?isActive=true"/>
         
-        <van-cell label="{{address}}" border="{{false}}"/>
+        <van-cell label="收货地址点击后即可收到" border="{{false}}"/>
       </van-cell-group>
 
       <!-- 物流服务 -->
-<<<<<<< HEAD
-     <van-cell-group>
-         <view class="store-item">
-    <view class="label">物流服务</view>
-    <van-dropdown-menu
-      class="store" 
-      active-color="#eb4450"
-    >
-     <van-dropdown-item 
-        data-name="service"
-        value="{{form.service}}" 
-        options="{{ serviceList }}" 
-        bind:change="updateServiceValue" 
-      ></van-dropdown-item>
-    </van-dropdown-menu>
-  </view>
-  <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
-  <van-cell label="物流服务说明" value="{{form.serviceDescription}}" border="{{false}}"/>  
-  
-           
-      </van-cell-group>
-=======
     <van-cell-group>
       <view class="store-item">
         <view class="label">物流服务</view>
@@ -154,9 +132,8 @@
       </view>
       <van-divider hairline custom-style="padding-left: 16px;margin: 0;"/>
       <!-- <van-cell label="{{form.service}}" value="{{form.serviceDescription}}" border="{{false}}"/>            -->
-      <van-cell label="{{form.serviceDescription}}" value="{{form.service}}" border="{{false}}"/>           
+      <van-cell label="{{form.serviceDescription}}"  border="{{false}}"/>           
     </van-cell-group>
->>>>>>> e98322bc71a87e29aba4867763e3b8a437e93bae
 
 
       <!-- 增值服务 -->

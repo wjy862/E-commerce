@@ -30,11 +30,11 @@ Page({
         })
       }
     });
-    if (getApp().globalData.uid!=null){
+    /*if ( getApp().globalData.uid!=null){
       wx.switchTab({
         url: '../home/home' 
       })
-    }
+    }*/
   },
   goToRegist: function(){
     wx.navigateTo({
@@ -61,7 +61,7 @@ Page({
         console.log(res)
         console.log(res.data)
         console.log(res.data.uid)
-        if (res.data.uid != null) {
+        if (res.data.uid != "尚未登录" &&res.data.uid != null) {
           wx.showToast({
               title: '登录成功',
               icon: 'success',
@@ -71,7 +71,7 @@ Page({
               wx.hideToast();
             }),
             app.globalData.uid = res.data.uid;
-            console.log(res.data.uid)
+            console.log(res.data.uid); 
             wx.switchTab({
               url: '../home/home' 
             })

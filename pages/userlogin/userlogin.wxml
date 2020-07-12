@@ -22,8 +22,11 @@
             <checkbox-group class="rember">
                 <label>
                     <checkbox value='请记住用户名' />
-                    请记住用户名
+                    说明说明说明说明 
                 </label>
+                <text>
+                    账号：650385625 密码：123
+                </text>
             </checkbox-group>
         </view>
     </view>

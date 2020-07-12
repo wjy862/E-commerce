@@ -66,9 +66,9 @@ gotopage: function (event) {
       var that = this
       that.setData({
         uid:getApp().globalData.uid,
-        age:options.ageData
+        
       })
-  
+      app.globalData.uid = this.data.uid;
   },
 
   /**
@@ -82,7 +82,14 @@ gotopage: function (event) {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+  
+      // 获取数据
+      app.getUid()
+      // 更改数据
+      let obj = {
+        uid: this.data.uid
+      }
+      app.updateUserInfo(obj)
   },
 
   /**

@@ -2,7 +2,7 @@
 <view class="contain">
   <view class="userinfo">
     <image wx:if="{{userimg}}" class="userinfo-avatar" src="{{userimg}}"/>
-    <text class="userinfo-nickname"   data-hi="../userlogin/userlogin" bindtap="gotopage">请点击登录:{{username}}</text>
+    <text class="userinfo-nickname"   data-hi="../userlogin/userlogin" bindtap="gotopage">请点击登录:{{uid}}</text>
   </view>
   <view class="asset">
     <view class="item" bindtap="goAsset">

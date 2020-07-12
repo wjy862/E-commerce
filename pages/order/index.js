@@ -106,15 +106,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-<<<<<<< HEAD
   
-=======
-    // this.sysCoupons() 
-    // this.getMyCoupons()
-    // this.invalidCoupons()
-    // ?? 没实现这些函数报错
->>>>>>> e98322bc71a87e29aba4867763e3b8a437e93bae
-    this.onLoad()
+    this.onLoad();
+   
   },
 
   /**
@@ -170,6 +164,55 @@ handleTabsItemChange(e){
   let index = e.detail.index;
   this.data.tabs.forEach((item) => item.isActive = item.id === index);
   this.setData({tabs: this.data.tabs});
+},
+
+onDelete:function(event){
+  console.log(event)
+  var $this = this;
+  $this.setData({
+      cid:event.currentTarget.dataset.index,
+    }),
+ 
+  wx.request({
+    url: "http://localhost:8080/4px_logistics/CommandController/commandDelete", 
+    data: { 
+      'cid':this.data.cid
+    },
+    method: "POST",
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    },
+    success: function (res) {
+      console.log(res)
+      console.log(res.data)
+     
+      if (res.statusCode== 200 && res.data==true) {
+        wx.showToast({
+            title: '删除成功',
+            icon: 'success',
+            duration: 20000
+          })
+          setTimeout(function(){
+            wx.hideToast();
+          }),
+        wx.switchTab({
+          url: '../order/index',
+          //删除后刷新我的包裹页面
+          success: function (e) {
+            let page = getCurrentPages().pop();
+            if (page == undefined || page == null) return;
+            page.onLoad();
+          }
+        })
+      }  else {
+        wx.showToast({
+          title: '服务器升级中，请稍后联系我们 电话电话电话我是电话',
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+    }
+  })
 }
 
 

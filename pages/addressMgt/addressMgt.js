@@ -53,9 +53,9 @@ Page({
         console.log(res)
         console.log(res.data)
        
-        if (res.statusCode== 200) {
+        if (res.statusCode== 200 && res.data==true) {
           wx.showToast({
-              title: '查询成功',
+              title: '删除成功',
               icon: 'success',
               duration: 20000
             })
@@ -74,7 +74,6 @@ Page({
         }
       }
     })
-   
   },
   
   /**

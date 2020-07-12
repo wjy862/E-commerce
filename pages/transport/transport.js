@@ -244,7 +244,7 @@ Page({
         'aid':aid,
         'direction':direction,
         'route':route,
-        'parcelList':data.goodsList
+       'parcelList':data.goodsList
       },
       method: "POST",
       header: {

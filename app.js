@@ -51,10 +51,25 @@ App({
       })
     }
   },
+   // 获取数据
+   getUid () {
+    return userInfo
+  }, 
+  // 更新用户信息
+  updateUid (obj) {
+    let keys = Object.keys(obj);
+    for (let i=0; i<keys.length;i++) {
+      let key = keys[i];
+      userInfo[key] = obj[key]
+    }
+  },
   globalData:{
     userInfo:null,
     telephone:null,
-    uid: 1,
+    uid: 1,//需要修改动态获取
     aid: null
   }
 })
+let userInfo = {
+  uid: 'test'
+}
