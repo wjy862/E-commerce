@@ -41,7 +41,7 @@ Page({
       }),
    
     wx.request({
-      url: "http://localhost:8080/4px_logistics/AdressController/adressDelete", 
+      url: "https://wxmp.seelles.cn/AdressController/adressDelete", 
       data: { 
         'aid':this.data.aid
       },
@@ -105,7 +105,7 @@ Page({
   console.log(this.data.uid)
   // 查询地址  
   wx.request({
-    url: "http://localhost:8080/4px_logistics/AdressController/findAdressByUid", 
+    url: "https://wxmp.seelles.cn/AdressController/findAdressByUid", 
     data: { 
       'uid':this.data.uid
     },

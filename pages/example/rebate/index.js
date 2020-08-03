@@ -9,7 +9,7 @@ Page({
    */
   data: {
     active: '好友明细',
-    rebateimg:"../../../image/rebate.jpg",
+    rebateimg:"https://wxmp.seelles.cn/static/images/rebate.jpg",
     tabs: ["好友明细", "返利明细", "返券明细"]
   },
   /**

@@ -6,8 +6,10 @@ Page({
    */
   data: {
     //compensationimg:["../../image/share1.jpg","../../image/share2.jpg","../../image/share3.jpg"]
-    compensationimg:["../../image/share.jpg"],
-    shareround:["../../image/shareround.jpg"]
+   // compensationimg:["../../image/share.jpg"],  
+    //shareround:["../../image/shareround.jpg"]
+    compensationimg:["https://wxmp.seelles.cn/static/images/share.jpg"],
+    shareround:["https://wxmp.seelles.cn/static/images/shareround.jpg"]
   },
 
   /**

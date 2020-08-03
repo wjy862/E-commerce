@@ -233,7 +233,7 @@ Page({
 
     // 添加订单  
     wx.request({
-      url: "http://localhost:8080/4px_logistics/CommandController/commandAdd", 
+      url: "https://wxmp.seelles.cn/CommandController/commandAdd", 
       data: { 
         'depotname': depotname,
         'numcn': numcn,

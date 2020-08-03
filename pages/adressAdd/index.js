@@ -95,7 +95,7 @@ Page({
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值)
     // 添加订单  
     wx.request({
-      url: "http://localhost:8080/4px_logistics/AdressController/adressAdd", 
+      url: "https://wxmp.seelles.cn/AdressController/adressAdd", 
       data: { 
         'aname': this.data.form.aname,
         'atelephone': this.data.form.atelephone,

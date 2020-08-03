@@ -45,6 +45,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    //console.log(app.getUid())
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -58,7 +59,7 @@ Page({
     console.log(uid)
       // 获得订单数据  
       wx.request({
-        url: "http://localhost:8080/4px_logistics/CommandController/findCommandByUid", 
+        url: "https://wxmp.seelles.cn/CommandController/findCommandByUid", 
         data: { 
           'uid':uid,
         },
@@ -174,7 +175,7 @@ onDelete:function(event){
     }),
  
   wx.request({
-    url: "http://localhost:8080/4px_logistics/CommandController/commandDelete", 
+    url: "https://wxmp.seelles.cn/CommandController/commandDelete", 
     data: { 
       'cid':this.data.cid
     },

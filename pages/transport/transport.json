@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "我要运转",
+  "navigationBarTitleText": "我要转运",
   "usingComponents": {
     "goods-form": "../../components/goodsForm/goodsForm"
   }

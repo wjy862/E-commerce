@@ -34,7 +34,7 @@ Page({
     var uid=app.globalData.uid;
        // 获得订单数据  
        wx.request({
-        url: "http://localhost:8080/4px_logistics/BonController/findPossessByUid", 
+        url: "https://wxmp.seelles.cn/BonController/findPossessByUid", 
         data: { 
           'uid':uid,
         },
@@ -128,7 +128,7 @@ Page({
     console.log(pwd)
       // 添加优惠券数据  
       wx.request({
-        url: "http://localhost:8080/4px_logistics/BonController/bonFindOne", 
+        url: "https://wxmp.seelles.cn/BonController/bonFindOne", 
         data: { 
           'uid':uid,
           'bid':pwd

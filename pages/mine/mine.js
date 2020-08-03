@@ -11,57 +11,57 @@ Page({
     userimg:"/icons/profile.png",
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    arrow:"../../image/0106arrow3x.png",
+    arrow:"https://wxmp.seelles.cn/static/images/0106arrow3x.png",
 
     switchItems: [{
-      icon: '../../image/yuyue.png',
+      icon: 'https://wxmp.seelles.cn/static/images/yuyue.png',
       text: '我的包裹',
       url:'../order/index'
     }],
     // 1.菜单栏数据
     items: [
       {
-        icon: '../../image/youhui.png',
+        icon: 'https://wxmp.seelles.cn/static/images/youhui.png',
         text: '我的优惠券',
         url:"../example/coupons/index"
       },
       {
-        icon: '../../image/qiandao.png',
+        icon: 'https://wxmp.seelles.cn/static/images/qiandao.png',
         text: '推广返利',
         url:"../example/rebate/index"
       },
       {
-        icon: '../../image/qiandao.png',
+        icon: 'https://wxmp.seelles.cn/static/images/qiandao.png',
         text: '收货地址管理',
         url:"../addressMgt/addressMgt"
       },
 
       {
-        icon: '../../image/qiandao.png',
+        icon: 'https://wxmp.seelles.cn/static/images/qiandao.png',
         text: '我的中转仓库地址',
         url:"../storage/index"
       } 
     ], 
     services:[
       {
-        icon: '../../image/shoucang.png',
+        icon: 'https://wxmp.seelles.cn/static/images/shoucang.png',
         text: '禁运品查询',
         url:'../example/ban/index'
       },
       {
-        icon: '../../image/shoucang.png',
+        icon: 'https://wxmp.seelles.cn/static/images/shoucang.png',
         text: '服务理赔',
         url:'../example/compensation/index'
       },
       {
-        icon: '../../image/yijan.png',
+        icon: 'https://wxmp.seelles.cn/static/images/yijan.png',
         text: '意见反馈',
         url:'../example/fdback/fdback'
       }
     ],
     logout:[
       {
-        icon:'../../image/kefu.png',
+        icon:'https://wxmp.seelles.cn/static/images/kefu.png',
         text: '退出',
         url:"../index/index"
       }

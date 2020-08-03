@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    compensationimg:"../../../image/compensation.jpg",
+    compensationimg:"https://wxmp.seelles.cn/static/images/compensation.jpg",
   },
 
   /**

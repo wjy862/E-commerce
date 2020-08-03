@@ -1,4 +1,5 @@
 // pages/home/home.js
+var app = getApp();
 Page({
 
   /**
@@ -17,16 +18,16 @@ Page({
       'https://p3.pstatp.com/large/31fa0003ed7228adf421'
     ],
     switchItems:[
-      {icon:"logistics",text:"我要运转",bindtap:"gotopage",url:"../transport/transport"},
+      {icon:"logistics",text:"我要转运",bindtap:"gotopage",url:"../transport/transport"},
       {icon:"refund-o",text:"我要返利",bindtap:"gotopage",url:"../rebate/index"},
-      {icon:"paid",text:"我的优惠券",bindtap:"gotopage",url:"../example/coupons/index"},
+      {icon:"paid",text:"我的优惠券",bindtap:"gotopage",url:"../example/coupons/index"}, 
       {icon:"balance-o",text:"服务价格",bindtap:"gotopage",url:"../service/index"},
       {icon:"location-o",text:"中转仓地址",bindtap:"gotopage",url:"../storage/index"},
       {icon:"warn-o",text:"禁运物品查询",bindtap:"gotopage",url:"../example/ban/index"},
   ],
     flowProcessList: [{name:"购物",description:"使用仓库地址购物"},{name:"预报",description:"填写需转运的包裹信息"},{name:"支付",description:"支付转运费用"},{name:"收获",description:"坐等收货"}],
     uid: "testhome",
-    arrow:'../../image/right.png'
+    arrow:'https://wxmp.seelles.cn/static/images/right.png'
     
   
 
@@ -89,7 +90,7 @@ gotopage: function (event) {
       let obj = {
         uid: this.data.uid
       }
-      app.updateUserInfo(obj)
+      app.updateUid(obj) 
   },
 
   /**

@@ -1,0 +1,93 @@
+<!--mineComponent/customer/customer.wxml-->
+<wxs module="m1">
+  var getTime = function(obj) {
+    var max = '';
+    var date = getDate();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate;
+    if (currentdate == obj.substring(0, 10)) {
+      max = obj.substring(11, 19)
+    } else {
+      max = obj
+    }
+
+    return max;
+  }
+  module.exports.getTime = getTime;
+</wxs>
+
+<view id='j_page' class='chat-show-vw' style="padding-bottom:{{isChoose?'320rpx':'120rpx'}}">
+
+  <block wx:for="{{list}}" wx:key="idx">
+    <view class='chat-show-time-vw tyFont26 ash' wx:if="{{item.IsShowTime}}">
+      {{m1.getTime(item.CreateTime)}}
+    </view>
+
+    <!-- 别人的聊天区域 -->
+    <view class='one-vw chat-others-vw' wx:if="{{!item.IsSendUser}}">
+      <view class='img-font-0'>
+        <image src='../../chat/resources/chat/kefu.png' class='yuan img-wh-85' style='background:red;'></image>
+      </view>
+
+      <view class='chat-others-info img-font-0'>
+        <text class='tyFont28' wx:if="{{item.SendFlag=='1'}}">{{item.Msg}}</text>
+        <image src='{{item.Msg}}' mode="widthFix" style='max-width:460rpx;' wx:if="{{item.SendFlag=='2'}}" bindtap='toSeeImg' data-url='{{item.Msg}}'></image>
+      </view>
+    </view>
+
+    <!-- 自己的聊天区域 -->
+    <view class='one-vw chat-mine-vw' wx:if="{{item.IsSendUser}}">
+      <view class='chat-mine-info img-font-0'>
+        <text class='tyFont28' wx:if="{{item.SendFlag=='1'}}">{{item.Msg}}</text>
+        <image src='{{item.Msg}}' mode="widthFix" style='max-width:460rpx;' wx:if="{{item.SendFlag=='2'}}" bindtap='toSeeImg' data-url='{{item.Msg}}'></image>
+      </view>
+
+      <view class='img-font-0'>
+        <image src='{{img}}' class='yuan img-wh-85' style='background:red;'></image>
+      </view>
+    </view>
+  </block>
+
+</view>
+
+<view class='chat-input-vw'>
+  <view class='one-a-vw' style='height: 100rpx;'>
+    <view class='input-vw'>
+      <input class='chat-input tyFont28' type="text" confirm-type="send" value='{{inputValue}}' cursor-spacing="20rpx" bindinput="bindKeyInput" bindconfirm="toSend" placeholder="请输入要发送的内容"></input>
+    </view>
+
+    <view class='choose-img-vw'>
+      <image src='../../chat/resources/chat/add.svg' wx:if="{{!isChoose}}" class="img-wh-50 choose-img" bindtap='chooseImg'></image>
+      <image src='../../chat/resources/chat/cha.svg' wx:if="{{isChoose}}" class="img-wh-50 choose-img" bindtap='chooseImg'></image>
+    </view>
+  </view>
+
+  <view class='choose-vw one-a-vw' wx:if="{{isChoose}}">
+    <view class='choose-item' bindtap='toChooseImg' data-flag='album'>
+      <view style='font-size:0;'>
+        <image src='../../chat/resources/chat/photo.svg' class='img-wh-70'></image>
+      </view>
+      <view class='tyFont28 dan-black'>相册</view>
+    </view>
+
+    <view class='choose-item' bindtap='toChooseImg' data-flag='camera'>
+      <view style='font-size:0;'>
+        <image src='../../chat/resources/chat/takePhoto.svg' class='img-wh-70'></image>
+      </view>
+      <view class='tyFont28 dan-black'>拍照</view>
+    </view>
+  </view>
+</view>
+
+<view class='chat-fixed-tohome' bindtap='toHome' wx:if="{{isCustomer}}">
+  <image src='../../chat/resources/chat/toHome.png'></image>
+</view>

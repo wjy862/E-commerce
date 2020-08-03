@@ -6,7 +6,9 @@ Page({
    */
   data: {
     //compensationimg:["../../image/share1.jpg","../../image/share2.jpg","../../image/share3.jpg"]
-    servicepriceimg:["../../image/serviceprice.jpg"]
+   // servicepriceimg:["../../image/serviceprice.jpg"]
+    servicepriceimg:["https://wxmp.seelles.cn/static/images/serviceprice.jpg"]
+   
   },
 
   /**

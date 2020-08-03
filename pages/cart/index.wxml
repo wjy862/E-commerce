@@ -1,2 +1,4 @@
 <!--pages/cart/index.wxml-->
-<text>亲，正在施工中...</text>
+<m-chat id="chat" list="{{list}}" img="{{userInfo2.AvatarUrl}}" isCustomer="true" 
+bind:send="sendMsg" bind:upload="uploadImg" bind:tohome="toHome">
+</m-chat>

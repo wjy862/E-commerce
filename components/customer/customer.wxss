@@ -1,0 +1,125 @@
+/* mineComponent/customer/customer.wxss */
+@import "../../app.wxss";
+
+page {
+  background: #ebebeb;
+}
+
+.chat-input-vw {
+  position: fixed;
+  left: 0rpx;
+  bottom: 0rpx;
+  width: 100%;
+  background: white;
+}
+
+.input-vw {
+  width: 610rpx;
+  height: 90rpx;
+  padding-left: 40rpx;
+  padding-top: 10rpx;
+}
+
+.chat-input {
+  height: 60rpx;
+  width: 590rpx;
+  background: #ebebeb;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+
+.choose-img-vw {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+
+.choose-img {
+  position: relative;
+  top: 25rpx;
+}
+
+.choose-vw {
+  height: 200rpx;
+}
+
+.choose-item {
+  width: 50%;
+  text-align: center;
+}
+
+.chat-fixed-tohome {
+  position: fixed;
+  right: 15rpx;
+  bottom: 120rpx;
+  font-size: 0rpx;
+}
+
+.chat-fixed-tohome>image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.chat-show-vw {
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+}
+
+.chat-show-time-vw {
+  text-align: center;
+  height: 60rpx;
+  line-height: 80rpx;
+}
+
+.chat-others-vw {
+  justify-content: flex-start;
+  margin-top: 20rpx;
+}
+
+.chat-others-info {
+  position: relative;
+  padding: 20rpx;
+  background: white;
+  border-radius: 10rpx;
+  max-width: 460rpx;
+  margin-left: 20rpx;
+}
+
+.chat-others-info::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  left: -8rpx;
+  top: 28rpx;
+  border-top: 10rpx solid transparent;
+  border-right: 10rpx solid white;
+  border-bottom: 10rpx solid transparent;
+}
+
+.chat-mine-vw {
+  justify-content: flex-end;
+  margin-top: 20rpx;
+}
+
+.chat-mine-info {
+  position: relative;
+  padding: 20rpx;
+  background: white;
+  border-radius: 10rpx;
+  max-width: 460rpx;
+  margin-right: 20rpx;
+  text-align: left;
+}
+
+.chat-mine-info::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  right: -8rpx;
+  top: 28rpx;
+  border-top: 10rpx solid transparent;
+  border-left: 10rpx solid white;
+  border-bottom: 10rpx solid transparent;
+}

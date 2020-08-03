@@ -87,7 +87,7 @@ Page({
             success(res) {
                 if (res.confirm) {
                     wx.request({
-                        url: "http://localhost:8080/4px_logistics/UserController/userAdd",
+                        url: "https://wxmp.seelles.cn/UserController/userAdd",
                         data: {
                             'telephone':telephone,
                             'pwd':pwd,

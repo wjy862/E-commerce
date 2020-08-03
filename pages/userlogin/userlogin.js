@@ -48,7 +48,8 @@ Page({
     var pwd = e.detail.value.pwd;
     // 判断账号是否为空和判断该账号名是否被注册  
     wx.request({
-      url: "http://localhost:8080/4px_logistics/UserController/userLogin", 
+      //url: "http://localhost:8080/4px_logistics/UserController/userLogin", 
+       url: "https://wxmp.seelles.cn/UserController/userLogin", 
       data: {
         'telephone': telephone,
         'pwd': pwd,

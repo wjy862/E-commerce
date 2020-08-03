@@ -21,3 +21,232 @@ page{
 font-size:"28rpx"
 
 }
+
+.tyFont32 {
+  font-size: 32rpx;
+}
+
+.tyFont34 {
+  font-size: 34rpx;
+}
+
+.tyFont16 {
+  font-size: 32rpx;
+}
+
+.tyFont20 {
+  font-size: 20rpx;
+}
+
+.tyFont22 {
+  font-size: 22rpx;
+}
+
+.tyFont38 {
+  font-size: 38rpx;
+}
+
+.tyFont30 {
+  font-size: 30rpx;
+}
+
+.tyFont24 {
+  font-size: 24rpx;
+}
+
+.tyFont26 {
+  font-size: 26rpx;
+}
+
+.tyFont28 {
+  font-size: 28rpx;
+}
+
+.tyFont36 {
+  font-size: 36rpx;
+}
+
+.tyFont70 {
+  font-size: 70rpx;
+}
+
+.img-font-0 {
+  font-size: 0rpx;
+}
+
+.addBold {
+  font-weight: bold;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  text-align: center;
+  display: flex; /*Flex布局*/
+  display: -webkit-flex; /* Safari */
+  align-items: center; /*指定垂直居中*/
+  justify-content: center;
+}
+
+.zezhao {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 98;
+  text-align: center;
+}
+
+.hiddenScroll {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 0;
+}
+
+.bottom-tip {
+  text-align: center;
+  height: 70rpx;
+  line-height: 1.5;
+  width: 100%;
+  color: #888;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom-tip2 {
+  text-align: center;
+  height: 70rpx;
+  line-height: 1.5;
+  width: 100%;
+  color: #888;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+}
+
+.p-20 {
+  padding: 20rpx;
+}
+
+.p-rl-10 {
+  padding: 0 20rpx;
+}
+
+.p-rl-15 {
+  padding: 0 30rpx;
+}
+
+.m-t-5 {
+  margin-top: 10rpx;
+}
+
+.m-t-10 {
+  margin-top: 20rpx;
+}
+
+.black-dan {
+  color: #444;
+}
+
+.img-wh-30 {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.img-wh-35 {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.img-wh-40 {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.img-wh-45 {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.img-wh-50 {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.img-wh-55 {
+  width: 55rpx;
+  height: 55rpx;
+}
+
+.img-wh-70 {
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.img-wh-85 {
+  width: 85rpx;
+  height: 85rpx;
+}
+
+.yuan {
+  border-radius: 50%;
+}
+
+.ash {
+  color: #a5a5a5;
+}
+
+.one-a-vw {
+  display: flex;
+  align-items: center;
+}
+
+.cIng-fixed-tohome {
+  position: fixed;
+  right: 10rpx;
+  bottom: 75rpx;
+  font-size: 0rpx;
+}
+
+.cIng-fixed-tohome>image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.tip-img {
+  width: 200rpx;
+  height: 160rpx;
+}
+
+.tip-view {
+  text-align: center;
+  position: relative;
+  top: 160rpx;
+}
+
+.one-vw {
+  display: flex;
+}
+
+.one-l-r {
+  justify-content: space-between;
+}
